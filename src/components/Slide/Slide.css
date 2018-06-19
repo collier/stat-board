@@ -1,0 +1,22 @@
+.slide__title-container {
+  margin-bottom: 20px;
+  background-color: #051a6d;
+}
+
+.slide__title {
+  margin: 5px 0;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+}
+
+.slide__content-container {
+  height: calc(100% - 77px);
+}
+
+.slide__content {
+  height: 100%;
+}
+
+.slide__message {
+  font-size: 10em;
+}

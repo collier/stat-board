@@ -1,0 +1,104 @@
+.slide--staff {
+  color: #fff;
+  background-color: #9678eb;
+}
+
+.slide--staff .slide__title-container {
+  color: #fff;
+  background-color: #21aa82;
+}
+
+.Anniversaries__label,
+.LongestTenure__label,
+.Birthdays__label,
+.NumberOfStaff__label,
+.LongestTenure__NumberLabel,
+.AnniversaryYear {
+  text-transform: uppercase;
+}
+
+.Anniversaries__label,
+.LongestTenure__label,
+.Birthdays__label{
+  font-size: 2.5em;
+}
+
+.NumberOfStaff__value {
+  font-size: 17em;
+  line-height: 0.9em;
+}
+
+.NumberOfStaff__label {
+  font-size: 3em;
+}
+
+.LongestTenure {
+  max-width: 475px;
+}
+
+.LongestTenure__name {
+  font-size: 7em;
+  line-height: 0.8em;
+  margin-bottom: 40px;
+}
+
+.LongestTenure__length {
+  line-height: 0em;
+}
+
+.LongestTenure__Number {
+  font-size: 3em;
+  margin-right: 0.1em;
+}
+
+.LongestTenure__NumberLabel {
+  margin-right: 1em;
+  font-size: 2em;
+}
+
+.Anniversaries__label,
+.Anniversary__Name,
+.Birthdays__label,
+.Birthdays__value {
+  text-align: center;
+}
+
+.Anniversaries__icon,
+.Birthdays__icon {
+  height: 50px;
+}
+
+.Anniversaries__label__text,
+.Birthdays__label__text {
+  margin: 0 20px;
+}
+
+.Birthdays__value {
+  font-size: 5em;
+  margin-top: 25px;
+  line-height: 0.8em;
+}
+
+.AnniversaryGroup {
+  margin-bottom: 20px;
+}
+
+.AnniversaryYear {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.Anniversary {
+  font-size: 3.5em;
+  line-height: 1em;
+  text-align: center;
+}
+
+.Anniversary--empty,
+.Birthdays__value--empty {
+  font-size: 5em;
+  margin-top: 25px;
+  line-height: 0.8em;
+}

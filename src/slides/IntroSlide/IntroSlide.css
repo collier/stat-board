@@ -1,0 +1,27 @@
+.slide--introduction {
+  color: #fff;
+  background-color: #21aa82;
+  font-family: 'Oswald', sans-serif;
+}
+
+.AppName {
+  font-size: 4em;
+  margin-top: -1em;
+}
+
+.DateTime {
+  font-size: 5em;
+}
+
+.PoweredBy {
+  position: absolute;
+  top: 93%;
+}
+
+.PoweredBy__Text {
+  font-size: 1.7em;
+}
+
+.PoweredBy__Logo {
+  max-width: 55px;
+}

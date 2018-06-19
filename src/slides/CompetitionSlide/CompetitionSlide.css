@@ -1,0 +1,38 @@
+.slide--competition {
+  color: #fff;
+  background-color: #4DCCBD;
+}
+
+.slide--competition .slide__title-container {
+  color: #fff;
+  background-color: #2374AB;
+}
+
+.slide--competition .slide__content .row {
+  height: 33%;
+}
+
+.Competition {
+  max-width: 560px;
+}
+
+.Competition__winner {
+  font-size: 3em;
+  line-height: 0.8em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.Competition__name {
+  font-size: 1.5em;
+  line-height: 1.1em;
+  text-align: center;
+}
+
+.Competition__icon {
+  margin-bottom: 20px;
+}
+
+.Competition__icon img {
+  max-width: 130px;
+}

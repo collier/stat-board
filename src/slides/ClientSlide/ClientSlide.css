@@ -1,0 +1,28 @@
+.slide--clients {
+  color: #fff;
+  background-color: #DB93B0;
+}
+
+.slide--clients .slide__title-container {
+  color: #fff;
+  background-color: #F7BFB4;
+}
+
+.ClientStat {
+  margin-left: 8em;
+}
+
+.ClientStat__label {
+  font-size: 2.5em;
+  text-transform: uppercase;
+}
+
+.ClientStat__value {
+  font-size: 8em;
+  line-height: 1em;
+}
+
+.ClientStat__value .units {
+  line-height: 0;
+  font-size: 0.5em;
+ }

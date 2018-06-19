@@ -1,0 +1,33 @@
+{
+  "name": "c20g-slides-2",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:9001"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.1",
+    "change-case": "^3.0.2",
+    "classnames": "^2.2.5",
+    "geodist": "^0.2.1",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.1",
+    "numeral": "^2.0.6",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4",
+    "react-simple-maps": "^0.12.1",
+    "react-slick": "^0.23.1",
+    "skycons": "^1.0.0",
+    "slick-carousel": "^1.8.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

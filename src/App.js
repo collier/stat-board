@@ -17,7 +17,7 @@ class App extends Component {
       initialSlide: 0,
       nextSlide: 1,
       autoplay: true,
-      slideDuration: 7000,
+      slideDuration: 15000,
       slideTransitionSpeed: 3000
     };
     this.onSlideChange = this.onSlideChange.bind(this);

@@ -30,7 +30,7 @@ class IntroSlide extends Component {
   }
 
   render() {
-    const datetime = this.state.time.format('MMMM do, YYYY – h:mm:ss A');
+    const datetime = this.state.time.format('MMMM Do, YYYY – h:mm:ss A');
     return (
       <div className="slide slide--introduction">
         <div className="slide__content row justify-content-center align-items-center">

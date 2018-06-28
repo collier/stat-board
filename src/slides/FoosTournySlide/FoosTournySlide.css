@@ -1,0 +1,16 @@
+.slide--foos-tourney {
+  color: #fff;
+  background-color: #fff;
+}
+
+.slide--foos-tourney .slide__title-container {
+  color: #fff;
+  background-color: #30332E;
+}
+
+iframe {
+  height: 99%;
+  width: 100%;
+  transform: scale(1.33);
+  transform-origin: 0 0;
+}

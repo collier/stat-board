@@ -42,6 +42,10 @@ body,
   width: auto !important;
 }
 
+.h-22 {
+  height: 22% !important;
+}
+
 .h-25 {
   height: 25% !important;
 }

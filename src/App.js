@@ -8,7 +8,7 @@ import StaffSlide from './slides/StaffSlide/StaffSlide';
 import ClientSlide from './slides/ClientSlide/ClientSlide';
 import CompetitionSlide from './slides/CompetitionSlide/CompetitionSlide';
 import CorpEventsSlide from './slides/CorpEventsSlide/CorpEventsSlide';
-import FoosTournySlide from './slides/FoosTournySlide/FoosTournySlide';
+import PetOfTheMonthSlide from './slides/PetOfTheMonthSlide/PetOfTheMonthSlide';
 
 class App extends Component {
 
@@ -64,7 +64,7 @@ class App extends Component {
         <ClientSlide slideNumber={4} nextSlide={this.state.nextSlide} />
         <CompetitionSlide slideNumber={5} nextSlide={this.state.nextSlide} />
         <CorpEventsSlide slideNumber={6} nextSlide={this.state.nextSlide} />
-        <FoosTournySlide slideNumber={7} nextSlide={this.state.nextSlide} />
+        <PetOfTheMonthSlide slideNumber={7} nextSlide={this.state.nextSlide} />
       </Slider>
     );
   }

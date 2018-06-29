@@ -1,0 +1,41 @@
+.slide--pet-of-the-month {
+  color: #fff;
+  background-color: #B49082;
+}
+
+.slide--pet-of-the-month .slide__title-container {
+  color: #fff;
+  background-color: #98473E;
+}
+
+.PetStats {
+  margin-left: 8em;
+}
+
+.Pet__Picture {
+  max-width: 80%;
+  border-radius: 50%;
+}
+
+.Pet__Name,
+.Pet__Species,
+.Pet__Owner {
+  margin-bottom: 30px;
+}
+
+.Pet__Name__value,
+.Pet__Species__value,
+.Pet__Owner__value {
+  font-size: 4.5em;
+}
+
+.Pet__Name__label,
+.Pet__Species__label,
+.Pet__Owner__label {
+  text-transform: uppercase;
+  font-size: 2.5em;
+}
+
+.Pet__Description {
+  font-size: 2em;
+}

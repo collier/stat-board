@@ -52,13 +52,14 @@ class PetOfTheMonthSlide extends Component {
     } else if (!pet) {
       return <Slide title="pet of the month" message="Coming Soon!" />;
     } else {
+      const petName = {__html: pet.petName};
       return (
         <Slide title="pet of the month">
           <div className="row slide__content">
             <div className="col-5 PetStats">
               <div className="d-flex align-items-center h-22">
                 <div className="Pet__Name">
-                  <div className="Pet__Name__value">"{pet.petName}"</div>
+                  <div className="Pet__Name__value" dangerouslySetInnerHTML={petName} />
                   <div className="Pet__Name__label">name</div>
                 </div>
               </div>
@@ -68,7 +69,7 @@ class PetOfTheMonthSlide extends Component {
                   <div className="Pet__Owner__label">owner</div>
                 </div>
               </div>
-              <div className="d-flex align-items-center h-22">
+              <div className="d-flex align-items-center h-20">
                 <div className="Pet__Species">
                   <div className="Pet__Species__value">{pet.petSpecies}</div>
                   <div className="Pet__Species__label">breed/species</div>

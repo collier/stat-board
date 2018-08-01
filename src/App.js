@@ -5,9 +5,10 @@ import IntroSlide from './slides/IntroSlide/IntroSlide';
 import WeatherSlide from './slides/WeatherSlide/WeatherSlide';
 import DrinkSlide from './slides/DrinkSlide/DrinkSlide';
 import StaffSlide from './slides/StaffSlide/StaffSlide';
-import ClientSlide from './slides/ClientSlide/ClientSlide';
+// import ClientSlide from './slides/ClientSlide/ClientSlide';
 import CompetitionSlide from './slides/CompetitionSlide/CompetitionSlide';
 import CorpEventsSlide from './slides/CorpEventsSlide/CorpEventsSlide';
+import MetroSlide from './slides/MetroSlide/MetroSlide';
 import PetOfTheMonthSlide from './slides/PetOfTheMonthSlide/PetOfTheMonthSlide';
 
 class App extends Component {
@@ -18,7 +19,7 @@ class App extends Component {
       initialSlide: 0,
       nextSlide: 1,
       autoplay: true,
-      slideDuration: 15000,
+      slideDuration: 10000,
       slideTransitionSpeed: 3000
     };
     this.onSlideChange = this.onSlideChange.bind(this);
@@ -61,9 +62,10 @@ class App extends Component {
         <WeatherSlide slideNumber={1} nextSlide={this.state.nextSlide} />
         <DrinkSlide slideNumber={2} nextSlide={this.state.nextSlide} />
         <StaffSlide slideNumber={3} nextSlide={this.state.nextSlide} />
-        <ClientSlide slideNumber={4} nextSlide={this.state.nextSlide} />
-        <CompetitionSlide slideNumber={5} nextSlide={this.state.nextSlide} />
-        <CorpEventsSlide slideNumber={6} nextSlide={this.state.nextSlide} />
+        {/* <ClientSlide slideNumber={4} nextSlide={this.state.nextSlide} /> */}
+        <CompetitionSlide slideNumber={4} nextSlide={this.state.nextSlide} />
+        <CorpEventsSlide slideNumber={5} nextSlide={this.state.nextSlide} />
+        <MetroSlide slideNumber={6} nextSlide={this.state.nextSlide} />
         <PetOfTheMonthSlide slideNumber={7} nextSlide={this.state.nextSlide} />
       </Slider>
     );

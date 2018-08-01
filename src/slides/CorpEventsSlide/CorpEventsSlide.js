@@ -53,20 +53,21 @@ class CorpEventsSlide extends Component {
     }
     return currEvents.map((event, index) => {
       const eventDate = moment(event.eventDate, moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
-      const today = moment();
-      const daysUntilEvent = eventDate.diff(today, 'days');
-      let formatString = '';
-      if(daysUntilEvent === 0) {
-        formatString = '[Today]';
-      } else if(daysUntilEvent === 1) {
-        formatString = '[Tomorrow]';
-      } else if(eventDate.day() > today.day() && daysUntilEvent <= 7) {
-        formatString = '[This] dddd';
-      } else if((today.day() > eventDate.day() && daysUntilEvent <= 7) || (today.day() < eventDate.day() && daysUntilEvent < 14)) {
-        formatString = '[Next] dddd';
-      } else {
-        formatString = 'dddd, MMMM Do';
-      }
+      // const today = moment();
+      // const daysUntilEvent = eventDate.diff(today, 'days');
+      // let formatString = '';
+      // if(daysUntilEvent === 0) {
+      //   formatString = '[Today]';
+      // } else if(daysUntilEvent === 1) {
+      //   formatString = '[Tomorrow]';
+      // } else if(eventDate.day() > today.day() && daysUntilEvent <= 7) {
+      //   formatString = '[This] dddd';
+      // } else if((today.day() > eventDate.day() && daysUntilEvent <= 7) || (today.day() < eventDate.day() && daysUntilEvent < 14)) {
+      //   formatString = '[Next] dddd';
+      // } else {
+      //   formatString = 'dddd, MMMM Do';
+      // }
+      let formatString = 'dddd, MMMM Do';
       if(event.displayTimeFlag) {
         formatString += ' [@] h:mm A';
       }

@@ -16,8 +16,36 @@
   height: calc(100% - 58px);
 }
 
+.UpNextEvent__Title,
+.Events__Title {
+  font-size: 2.5em;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px 0;
+}
+
+.UpNextEvent {
+  padding: 50px 50px 50px 100px;
+}
+
+.UpNextEvent__Icon {
+  max-height: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.UpNextEvent__Name {
+  font-size: 4em;
+  text-align: center;
+}
+
+.UpNextEvent__Time {
+  font-size: 2.5em;
+  font-style: italic;
+  text-align: center;
+}
+
 .Events {
-  max-width: 67%;
   max-height: 90%;
 }
 
@@ -30,7 +58,7 @@
 }
 
 .Event__Name {
-  font-size: 3em;
+  font-size: 2.5em;
 }
 
 .Event__Time {

@@ -1,6 +1,6 @@
 {
-  "name": "c20g-slides-2",
-  "version": "0.1.0",
+  "name": "counterpoint-stat-board",
+  "version": "1.0.0",
   "private": true,
   "proxy": {
     "/api/*": {

@@ -1,0 +1,19 @@
+
+.ant-select-selection-selected-value .IconImage,
+.ant-select-dropdown-menu .IconImage {
+  width: 50px;
+  padding-right: 10px;
+}
+
+.IconSelector .ant-select,
+.IconSelector .ant-select-selection {
+  height: 69px;
+}
+
+.IconSelector .ant-select-selection__rendered {
+  line-height: 59px;
+}
+
+.IconSelector .ant-select-selection-selected-value {
+  padding: 3px 0;
+}

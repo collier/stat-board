@@ -1,0 +1,31 @@
+.AdminPanel .AdminPanel-Image {
+  max-width: 200px;
+  margin: 10px 27px 7px 27px;
+}
+
+.AdminPanel-Title {
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+.AdminPanel .ant-layout-sider,
+.AdminPanel .ant-menu-dark, 
+.AdminPanel .ant-menu-dark .ant-menu-sub {
+  background: #051a6d;
+}
+
+.AdminPanel .ant-menu.ant-menu-dark .ant-menu-item-selected, 
+.AdminPanel .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  background-color: #e16b5c;
+}
+
+.AdminPanel .ant-btn-primary {
+  color: #fff;
+  background-color: #21aa82;
+  border-color: #21aa82;
+}

@@ -13,7 +13,8 @@ body,
 .slick-track,
 .slick-slide,
 .slick-slide > div,
-.slide {
+.slide,
+.router {
   height: 100%;
   overflow-x: hidden;
 }

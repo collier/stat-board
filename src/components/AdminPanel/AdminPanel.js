@@ -1,8 +1,9 @@
 import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import { Redirect, NavLink, Route } from 'react-router-dom';
-import { ManageEvents, ManageCompetitions } from '../../pages';
-import 'antd/dist/antd.css';
+import { ManageEvents, ManageCompetitions, ManagePetOfTheMonth } from '../../pages';
+import PetIcon from '../PetIcon';
+
 import './AdminPanel.css';
 
 const { Footer, Sider } = Layout;
@@ -30,11 +31,18 @@ const AdminPanel = ({ match, location }) => {
                 <span>Competitions</span>
               </NavLink>
             </Menu.Item>
+            <Menu.Item key={`${match.url}/pet-of-the-month`}>
+              <NavLink to={`${match.url}/pet-of-the-month`} className="nav-text">
+                <PetIcon />
+                <span>Pet of the Month</span>
+              </NavLink>
+            </Menu.Item>
           </Menu>
         </Sider>
         <Layout>
           <Route path={`${match.url}/events`} component={ManageEvents} />
           <Route path={`${match.url}/competitions`} component={ManageCompetitions} />
+          <Route path={`${match.url}/pet-of-the-month`} component={ManagePetOfTheMonth} />
           <Route exact path={`${match.url}`} render={() => (
             <Redirect to={`${match.url}/events`} />
           )}/>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { message, Icon, Popconfirm, Button, Layout, Alert, Table, Card } from 'antd';
+import { message, Icon, Popconfirm, Button, Layout, Alert, Table, Card, Divider } from 'antd';
 import axios from 'axios';
+import AddCompetitionModal from './AddCompetitionModal';
+import EditCompetitionModal from './EditCompetitionModal';
 import filter from 'lodash/filter';
 import moment from 'moment';
 
@@ -13,9 +15,17 @@ class ManageCompetitions extends Component {
     this.state = {
       error: null,
       isLoaded: false,
+      addModalVisible: false,
+      editModalVisible: false,
+      activeCompetition: null,
       competitions: []
     };
-    this.onConfirmDelete = this.onConfirmDelete.bind(this);
+    this.handleClickAdd = this.handleClickAdd.bind(this);
+    this.handleClickCancel = this.handleClickCancel.bind(this);
+    this.handleAddCompetition = this.handleAddCompetition.bind(this);
+    this.handleEditCompetition = this.handleEditCompetition.bind(this);
+    this.handleConfirmDelete = this.handleConfirmDelete.bind(this);
+    this.handleClickEdit = this.handleClickEdit.bind(this);
   }
 
   componentDidMount() {
@@ -34,7 +44,28 @@ class ManageCompetitions extends Component {
       });
   }
 
-  onConfirmDelete(id, name) {
+  handleClickAdd() {
+    this.setState({
+      addModalVisible: true
+    });
+  }
+
+  handleClickEdit(record) {
+    this.setState({
+      editModalVisible: true,
+      activeCompetition: record
+    });
+  }
+
+  handleClickCancel() {
+    this.setState({
+      addModalVisible: false,
+      editModalVisible: false,
+      activeCompetition: null
+    });
+  }
+
+  handleConfirmDelete(id, name) {
     const deleteMsg = message.loading(`Deleting "${name}" competition...`, 0);
     axios.delete(`/api/competitions/${id}`)
       .then((response) => {
@@ -53,6 +84,28 @@ class ManageCompetitions extends Component {
         setTimeout(deleteMsg, 0);
         message.error(`Unable to delete "${name}" competition.`);
       });
+  }
+
+  handleAddCompetition(competition) {
+    this.setState(({ competitions }) => ({
+      competitions: competitions.concat(competition),
+      addModalVisible: false
+    }));
+  }
+
+  handleEditCompetition(competition) {
+    this.setState(({ competitions }) => {
+      const newCompetitions = competitions.map(currComp => {  
+        if(currComp.id === competition.id) {
+          currComp = competition;
+        }
+        return currComp;
+      });
+      return {
+        competitions: newCompetitions,
+        editModalVisible: false
+      }
+    });
   }
 
   render() {
@@ -85,28 +138,45 @@ class ManageCompetitions extends Component {
         title: 'Completed On',
         dataIndex: 'completedOn',
         key: 'completedOn',
-        render: text => moment(text, moment.HTML5_FMT.DATETIME_LOCAL_SECONDS).format('MM/DD/YYYY')
+        render: text => moment(text, moment.HTML5_FMT.DATETIME_LOCAL_SECONDS).format('MM/DD/YYYY'),
+        defaultSortOrder: 'descend',
+        sorter: (a, b) => { return a.completedOn.localeCompare(b.completedOn) }
       }, {
         title: 'Action',
         key: 'action',
         width: 360,
         render: (text, record) => (
-          <Popconfirm 
-            title={`Are you sure want to delete the "${record.name}" competition?`}
-            onConfirm={() => this.onConfirmDelete(record.id, record.name)} 
-            icon={<Icon type="warning" />}
-            okText="Yes" 
-            cancelText="No">
-              <a href={null}>Delete</a>
-          </Popconfirm>
+          <span>
+            <a href={null} onClick={() => this.handleClickEdit(record)}>Edit</a>
+            <Divider type="vertical" />
+            <Popconfirm 
+              title={`Are you sure want to delete the "${record.name}" competition?`}
+              onConfirm={() => this.handleConfirmDelete(record.id, record.name)} 
+              icon={<Icon type="warning" />}
+              okText="Yes" 
+              cancelText="No">
+                <a href={null}>Delete</a>
+            </Popconfirm>
+          </span>
         )
       }];
       return (
         <Content style={{ margin: '16px' }}>
           <Card title="Competitions" bordered={false}>
-            <Button type="primary" style={{ marginBottom: '16px' }}>
+            <Button type="primary" style={{ marginBottom: '16px' }} onClick={this.handleClickAdd}>
               Add New Competition
             </Button>
+            <AddCompetitionModal 
+              visible={this.state.addModalVisible} 
+              onCancel={this.handleClickCancel} 
+              onSuccess={this.handleAddCompetition} 
+            />
+            <EditCompetitionModal 
+              visible={this.state.editModalVisible} 
+              onCancel={this.handleClickCancel} 
+              onSuccess={this.handleEditCompetition} 
+              formData={this.state.activeCompetition}
+            />
             <Table 
               columns={columns} 
               dataSource={competitions} 

@@ -1,8 +1,20 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   font-family: 'Montserrat', sans-serif;
+  line-height: inherit;
+  font-size: inherit;
+}
+
+html {
+  line-height: inherit;
+}
+
+h1 {
+  margin-top: inherit;
+  margin-bottom: inherit;
+  color: inherit;
+  font-weight: bold;
 }
 
 html,

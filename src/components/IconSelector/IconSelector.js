@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Select, Spin } from 'antd';
+import { Spin } from 'antd';
+import map from 'lodash/map';
 import axios from 'axios';
+import VirtualizedSelect from 'react-virtualized-select';
 
 import './IconSelector.css';
-
-const Option = Select.Option;
 
 class IconSelector extends Component {
 
@@ -13,16 +13,52 @@ class IconSelector extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      icons: []
+      icons: [],
+      selectedIcon: props.value || null
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.triggerChange = this.triggerChange.bind(this);
+    this.renderPreview = this.renderPreview.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    // Should be a controlled component.
+    if('value' in nextProps) {
+      const value = nextProps.value;
+      this.setState({
+        selectedIcon: value
+      });
+    }
+  }
+
+  handleChange(selectedIcon)  {
+    if(!('value' in this.props)) {
+      this.setState({ selectedIcon });
+    }
+    this.triggerChange(selectedIcon);
+  }
+
+  triggerChange(changedValue) {
+    // Should provide an event to pass value to Form.
+    const onChange = this.props.onChange;
+    if(onChange) {
+      onChange(changedValue);
+    }
+  }
+  
   componentDidMount() {
     axios.get('/api/icons')
       .then((response) => {
+        var result = map(response.data, (value, key) => {
+          var iconPath = value.replace('img/icons/', '');
+          return {
+            value: iconPath,
+            label: iconPath
+          }
+        });
         this.setState(() => ({
           isLoaded: true,
-          icons: response.data
+          icons: result
         }));
       })
       .catch((error) => {
@@ -33,6 +69,36 @@ class IconSelector extends Component {
       });
   }
 
+  customOptionRender({ focusedOption, focusOption, key, option, options, selectValue, style }) {
+    let classNames = ['IconSelectorOption'];
+    if(option === focusedOption) {
+      classNames.push('VirtualizedSelectFocusedOption')
+    }
+    return (
+      <div
+        className={classNames.join(' ')}
+        key={key}
+        onClick={() => selectValue(option)}
+        onMouseEnter={() => focusOption(option)}
+        style={style}
+      >
+        <img src={`img/icons/${option.value}`} className="IconSelectorImage" alt="icon-display" />
+        <label className="IconSelectorLabel">{option.value}</label>
+      </div>
+    );
+  }
+
+  renderPreview() {
+    const { selectedIcon } = this.state;
+    if(selectedIcon) {
+      const icon = selectedIcon.value;
+      if(icon) {
+        return <img src={`img/icons/${icon}`} className="IconSelectorPreview" alt="icon-display" />;
+      }
+    }
+    return null;
+  }
+
   render() {
     const { error, isLoaded, icons } = this.state;
     if(error) {
@@ -40,30 +106,20 @@ class IconSelector extends Component {
     } else if(!isLoaded) {
       return <Spin />;
     } else {
-      const options = icons.map(filePath => {
-        var shortPath = filePath.replace('img\\icons\\', '');
-        return (
-          <Option key={shortPath} value={shortPath}>
-            <img src={filePath} className="IconImage" alt="icon-display" />
-            {shortPath}
-          </Option>
-        );
-      });
       return (
-        <div className="IconSelector">
-          <Select
-            showSearch
-            allowClear
-            style={{ width: '100%' }}
-            placeholder="Select an Icon"
-            optionFilterProp="children"
-            filterOption={(input, option) => option.props.value.indexOf(input.toLowerCase()) >= 0}
-          >
-            {options}
-          </Select>
+        <div>
+          <VirtualizedSelect
+            options={icons}
+            onChange={this.handleChange}
+            optionRenderer={this.customOptionRender}
+            optionHeight={75}
+            maxHeight={400}
+            value={this.state.selectedIcon}
+            size={32}
+          />
+          {this.renderPreview()}
         </div>
-        
-      )
+      );
     }
     
   }

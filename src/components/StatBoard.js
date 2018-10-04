@@ -5,7 +5,6 @@ import IntroSlide from '../slides/IntroSlide/IntroSlide';
 import WeatherSlide from '../slides/WeatherSlide/WeatherSlide';
 import DrinkSlide from '../slides/DrinkSlide/DrinkSlide';
 import StaffSlide from '../slides/StaffSlide/StaffSlide';
-// import ClientSlide from '../slides/ClientSlide/ClientSlide';
 import CompetitionSlide from '../slides/CompetitionSlide/CompetitionSlide';
 import CorpEventsSlide from '../slides/CorpEventsSlide/CorpEventsSlide';
 import MetroSlide from '../slides/MetroSlide/MetroSlide';
@@ -19,7 +18,7 @@ class StatBoard extends Component {
     this.state = {
       initialSlide: 0,
       nextSlide: 1,
-      autoplay: false,
+      autoplay: true,
       slideDuration: 10000,
       slideTransitionSpeed: 3000
     };
@@ -59,16 +58,15 @@ class StatBoard extends Component {
     };
     return (
       <Slider {...settings} ref={sliderRef => (this.sliderRef = sliderRef)}>
-        {/* <IntroSlide slideNumber={0} nextSlide={this.state.nextSlide} /> */}
-        {/* <WeatherSlide slideNumber={1} nextSlide={this.state.nextSlide} /> */}
-        {/* <DrinkSlide slideNumber={2} nextSlide={this.state.nextSlide} /> */}
-        {/* <StaffSlide slideNumber={3} nextSlide={this.state.nextSlide} /> */}
-        {/* <ClientSlide slideNumber={4} nextSlide={this.state.nextSlide} /> */}
-        {/* <CompetitionSlide slideNumber={4} nextSlide={this.state.nextSlide} /> */}
-        {/* <CorpEventsSlide slideNumber={5} nextSlide={this.state.nextSlide} /> */}
-        {/* <MetroSlide slideNumber={6} nextSlide={this.state.nextSlide} /> */}
-        <PetOfTheMonthSlide slideNumber={1} nextSlide={this.state.nextSlide} />
-        {/* <FantasyMatchupSlide slideNumber={8} nextSlide={this.state.nextSlide} /> */}
+        <IntroSlide slideNumber={0} nextSlide={this.state.nextSlide} />
+        <WeatherSlide slideNumber={1} nextSlide={this.state.nextSlide} />
+        <DrinkSlide slideNumber={2} nextSlide={this.state.nextSlide} />
+        <StaffSlide slideNumber={3} nextSlide={this.state.nextSlide} />
+        <CompetitionSlide slideNumber={4} nextSlide={this.state.nextSlide} />
+        <CorpEventsSlide slideNumber={5} nextSlide={this.state.nextSlide} />
+        <MetroSlide slideNumber={6} nextSlide={this.state.nextSlide} />
+        <PetOfTheMonthSlide slideNumber={7} nextSlide={this.state.nextSlide} />
+        <FantasyMatchupSlide slideNumber={8} nextSlide={this.state.nextSlide} />
       </Slider>
     );
   }

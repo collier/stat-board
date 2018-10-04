@@ -1,11 +1,51 @@
 
-.ant-select-selection-selected-value .IconImage,
-.ant-select-dropdown-menu .IconImage {
-  width: 50px;
-  padding-right: 10px;
+.Select-menu-outer {
+  height: 400px !important;
+  max-height: 400px !important;
 }
 
-.IconSelector .ant-select,
+.Select-menu {
+  height: 390px !important;
+  max-height: 390px !important;
+}
+
+.Select-control {
+  height: 32px !important;
+  line-height: 21px !important;
+}
+
+.Select-input {
+  height: 32px !important;
+}
+
+.Select-placeholder, 
+.Select--single > .Select-control .Select-value {
+  line-height: 32px !important;
+}
+
+.VirtualizedSelectFocusedOption {
+  cursor: pointer;
+}
+
+.IconSelectorOption {
+  height: 75px;
+}
+
+.IconSelectorOption .IconSelectorImage {
+  height: 75px;
+  padding: 10px;
+}
+
+.IconSelectorOption .IconSelectorLabel {
+  overflow-y: hidden;
+}
+
+.IconSelectorPreview {
+  width: 100px;
+  padding-top: 24px;
+}
+
+/* .IconSelector .ant-select,
 .IconSelector .ant-select-selection {
   height: 69px;
 }
@@ -16,4 +56,4 @@
 
 .IconSelector .ant-select-selection-selected-value {
   padding: 3px 0;
-}
+} */

@@ -1,8 +1,8 @@
 import React from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 
-import AdminPanel from './components/AdminPanel/AdminPanel';
-import StatBoard from './components/StatBoard';
+import AdminPanel from './admin/AdminPanel';
+import StatBoard from './statboard/StatBoard';
 
 const App = () => (
   <HashRouter>

@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
-import { message, Icon, Popconfirm, Button, Layout, Alert, Table, Card, Divider } from 'antd';
+import { 
+  message, 
+  Icon, 
+  Popconfirm, 
+  Button, 
+  Layout, 
+  Alert, 
+  Table, 
+  Card,
+  Divider 
+} from 'antd';
 import axios from 'axios';
-import AddEventModal from './AddEventModal';
-import EditEventModal from './EditEventModal';
+import AddCompetitionModal from './AddCompetitionModal';
+import EditCompetitionModal from './EditCompetitionModal';
 import filter from 'lodash/filter';
 import moment from 'moment';
 
 const { Content } = Layout;
 
-class ManageEvents extends Component {
+class ManageCompetitions extends Component {
 
   constructor(props) {
     super(props);
@@ -17,23 +27,23 @@ class ManageEvents extends Component {
       isLoaded: false,
       addModalVisible: false,
       editModalVisible: false,
-      activeEvent: null,
-      events: []
+      activeCompetition: null,
+      competitions: []
     };
     this.handleClickAdd = this.handleClickAdd.bind(this);
     this.handleClickCancel = this.handleClickCancel.bind(this);
-    this.handleAddEvent = this.handleAddEvent.bind(this);
-    this.handleEditEvent = this.handleEditEvent.bind(this);
+    this.handleAddCompetition = this.handleAddCompetition.bind(this);
+    this.handleEditCompetition = this.handleEditCompetition.bind(this);
     this.handleConfirmDelete = this.handleConfirmDelete.bind(this);
     this.handleClickEdit = this.handleClickEdit.bind(this);
   }
 
   componentDidMount() {
-    axios.get('/api/events')
+    axios.get('/api/competitions')
       .then((response) => {
         this.setState(() => ({
           isLoaded: true,
-          events: response.data
+          competitions: response.data
         }));
       })
       .catch((error) => {
@@ -53,7 +63,7 @@ class ManageEvents extends Component {
   handleClickEdit(record) {
     this.setState({
       editModalVisible: true,
-      activeEvent: record
+      activeCompetition: record
     });
   }
 
@@ -61,60 +71,60 @@ class ManageEvents extends Component {
     this.setState({
       addModalVisible: false,
       editModalVisible: false,
-      activeEvent: null
+      activeCompetition: null
     });
   }
 
   handleConfirmDelete(id, name) {
-    const deleteMsg = message.loading(`Deleting "${name}" event...`, 0);
-    axios.delete(`/api/events/${id}`)
+    const deleteMsg = message.loading(`Deleting "${name}" competition...`, 0);
+    axios.delete(`/api/competitions/${id}`)
       .then((response) => {
         setTimeout(deleteMsg, 0);
-        message.success(`"${name}" event successfully deleted.`);
-        this.setState(({ events }) => {
-          var newEvents = filter(events, (event) => {
-            return event.id !== id;
+        message.success(`"${name}" competition successfully deleted.`);
+        this.setState(({ competitions }) => {
+          var newCompetitions = filter(competitions, (competition) => {
+            return competition.id !== id;
           });
           return {
-            events : newEvents
+            competitions : newCompetitions
           };
         });
       })
       .catch((error) => {
         setTimeout(deleteMsg, 0);
-        message.error(`Unable to delete "${name}" event.`);
+        message.error(`Unable to delete "${name}" competition.`);
       });
   }
 
-  handleAddEvent(event) {
-    this.setState(({ events }) => ({
-      events: events.concat(event),
+  handleAddCompetition(competition) {
+    this.setState(({ competitions }) => ({
+      competitions: competitions.concat(competition),
       addModalVisible: false
     }));
   }
 
-  handleEditEvent(event) {
-    this.setState(({ events }) => {
-      const newEvents = events.map(currEvent => {  
-        if(currEvent.id === event.id) {
-          currEvent = event;
+  handleEditCompetition(competition) {
+    this.setState(({ competitions }) => {
+      const newCompetitions = competitions.map(currComp => {  
+        if(currComp.id === competition.id) {
+          currComp = competition;
         }
-        return currEvent;
+        return currComp;
       });
       return {
-        events: newEvents,
+        competitions: newCompetitions,
         editModalVisible: false
       }
     });
   }
 
   render() {
-    const { error, isLoaded, events } = this.state;
+    const { error, isLoaded, competitions } = this.state;
     if(error) {
       return (
         <Alert
           message="Error"
-          description="There was an error loading events"
+          description="There was an error loading competitions"
           type="error"
           showIcon
         />
@@ -131,29 +141,16 @@ class ManageEvents extends Component {
         dataIndex: 'name',
         key: 'name'
       }, {
-        title: 'Location',
-        dataIndex: 'location',
-        key: 'location'
+        title: 'Winner',
+        dataIndex: 'winner',
+        key: 'winner'
       }, {
-        title: 'Event Date',
-        dataIndex: 'eventDate',
-        key: 'eventDate',
-        defaultSortOrder: 'ascend',
-        sorter: (a, b) => { return a.eventDate.localeCompare(b.eventDate) },
-        render: (text, record) => {
-          if(record.displayTimeFlag) {
-            return moment(text, moment.HTML5_FMT.DATETIME_LOCAL_SECONDS).format('MM/DD/YYYY h:mm A');
-          } else {
-            return moment(text, moment.HTML5_FMT.DATETIME_LOCAL_SECONDS).format('MM/DD/YYYY');
-          }
-        }
-      }, {
-        title: 'All Day Event?',
-        dataIndex: 'displayTimeFlag',
-        key: 'displayTimeFlag',
-        render: (text) => {
-          return text ? 'No' : 'Yes';
-        }
+        title: 'Completed On',
+        dataIndex: 'completedOn',
+        key: 'completedOn',
+        render: text => moment(text, moment.HTML5_FMT.DATETIME_LOCAL_SECONDS).format('MM/DD/YYYY'),
+        defaultSortOrder: 'descend',
+        sorter: (a, b) => { return a.completedOn.localeCompare(b.completedOn) }
       }, {
         title: 'Action',
         key: 'action',
@@ -163,7 +160,7 @@ class ManageEvents extends Component {
             <a href={null} onClick={() => this.handleClickEdit(record)}>Edit</a>
             <Divider type="vertical" />
             <Popconfirm 
-              title={`Are you sure want to delete the "${record.name}" event?`}
+              title={`Are you sure want to delete the "${record.name}" competition?`}
               onConfirm={() => this.handleConfirmDelete(record.id, record.name)} 
               icon={<Icon type="warning" />}
               okText="Yes" 
@@ -175,24 +172,24 @@ class ManageEvents extends Component {
       }];
       return (
         <Content style={{ margin: '16px' }}>
-          <Card title="Events" bordered={false}>
+          <Card title="Competitions" bordered={false}>
             <Button type="primary" style={{ marginBottom: '16px' }} onClick={this.handleClickAdd}>
-              Add New Event
+              Add New Competition
             </Button>
-            <AddEventModal 
+            <AddCompetitionModal 
               visible={this.state.addModalVisible} 
               onCancel={this.handleClickCancel} 
-              onSuccess={this.handleAddEvent} 
+              onSuccess={this.handleAddCompetition} 
             />
-            <EditEventModal 
+            <EditCompetitionModal 
               visible={this.state.editModalVisible} 
               onCancel={this.handleClickCancel} 
-              onSuccess={this.handleEditEvent} 
-              formData={this.state.activeEvent}
+              onSuccess={this.handleEditCompetition} 
+              formData={this.state.activeCompetition}
             />
             <Table 
               columns={columns} 
-              dataSource={events} 
+              dataSource={competitions} 
               rowKey="id"
               loading={!isLoaded}
               size="small"
@@ -205,4 +202,4 @@ class ManageEvents extends Component {
 
 }
 
-export default ManageEvents;
+export default ManageCompetitions;

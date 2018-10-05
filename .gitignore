@@ -1,4 +1,6 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
+/public/img/icons
+/public/img/pets
 
 # dependencies
 /node_modules

@@ -1,8 +1,12 @@
 import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import { Redirect, NavLink, Route } from 'react-router-dom';
-import { ManageEvents, ManageCompetitions, ManagePetOfTheMonth } from '../../pages';
-import PetIcon from '../PetIcon';
+import { 
+  ManageEvents, 
+  ManageCompetitions, 
+  ManagePetOfTheMonth
+} from './pages';
+import PetIcon from './components/PetIcon';
 
 import './AdminPanel.css';
 

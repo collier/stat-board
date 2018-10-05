@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-
-import IntroSlide from '../slides/IntroSlide/IntroSlide';
-import WeatherSlide from '../slides/WeatherSlide/WeatherSlide';
-import DrinkSlide from '../slides/DrinkSlide/DrinkSlide';
-import StaffSlide from '../slides/StaffSlide/StaffSlide';
-import CompetitionSlide from '../slides/CompetitionSlide/CompetitionSlide';
-import CorpEventsSlide from '../slides/CorpEventsSlide/CorpEventsSlide';
-import MetroSlide from '../slides/MetroSlide/MetroSlide';
-import FantasyMatchupSlide from '../slides/FantasyMatchupSlide/FantasyMatchupSlide';
-import PetOfTheMonthSlide from '../slides/PetOfTheMonthSlide/PetOfTheMonthSlide';
+import {
+  IntroSlide,
+  WeatherSlide,
+  DrinkSlide,
+  StaffSlide,
+  CompetitionSlide,
+  CorpEventsSlide,
+  MetroSlide,
+  FantasyMatchupSlide,
+  PetOfTheMonthSlide
+} from './slides';
 
 class StatBoard extends Component {
 

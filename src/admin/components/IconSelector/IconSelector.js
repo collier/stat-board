@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Spin } from 'antd';
-import map from 'lodash/map';
 import axios from 'axios';
 import VirtualizedSelect from 'react-virtualized-select';
 
@@ -49,7 +48,7 @@ class IconSelector extends Component {
   componentDidMount() {
     axios.get('/api/icons')
       .then((response) => {
-        var result = map(response.data, (value, key) => {
+        var result = response.data.map((value, key) => {
           var iconPath = value.replace('img/icons/', '');
           return {
             value: iconPath,

@@ -1,0 +1,30 @@
+.halloween-theme {
+  font-family: 'Creepster', cursive;
+  font-size: 117%;
+}
+
+.halloween-theme .slide__title {
+  font-family: 'Nosifer', cursive;
+}
+
+.halloween-theme .slide--fantasy-football-matchups {
+  font-size: 109%;
+}
+
+.halloween-theme .slide--introduction {
+  font-family: 'Creepster', cursive;
+}
+
+.halloween-theme .slide--introduction .AppName {
+  margin-top: -0.5em;
+}
+
+.halloween-theme .slide--introduction { background-color: #BF4E15; }
+.halloween-theme .slide--weather { background-color: #420C34; }
+.halloween-theme .slide--drinks { background-color: #de0f00; }
+.halloween-theme .slide--staff { background-color: #220025; }
+.halloween-theme .slide--competition { background-color: #810043 }
+.halloween-theme .slide--corporate-events-holidays { background-color: #db713b; }
+.halloween-theme .slide--metro { background-color: #5b851b; }
+.halloween-theme .slide--pet-of-the-month { background-color: #932005; }
+.halloween-theme .slide--fantasy-football-matchups { background-color: #fe4705; }

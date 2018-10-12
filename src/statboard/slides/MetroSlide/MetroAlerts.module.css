@@ -1,0 +1,13 @@
+.noAlertsText {
+  font-size: 7em;
+  padding: 0 30px 0 0;
+}
+
+.noAlertsIcon {
+  max-width: 135px;
+}
+
+.alertText {
+  font-size: 2em;
+  padding: 0 25px 20px 25px;
+}

@@ -4,7 +4,8 @@ import axios from 'axios';
 
 import Slide from '../../components/Slide/Slide';
 
-import './DrinkSlide.css';
+import DrinkStat from './DrinkStat';
+import styles from './DrinkSlide.module.css';
 
 class DrinkSlide extends Component {
 
@@ -45,67 +46,45 @@ class DrinkSlide extends Component {
   }
 
   render() {
+    const { titleTheme, bodyTheme } = styles;
+    const themes = { titleTheme, bodyTheme };
     const { error, isLoaded, stats } = this.state;
     if (error) {
-      return <Slide title="drinks" message="Whoops, something broke." />;
+      return <Slide title="drinks" message="Whoops, something broke." { ...themes } />;
     } else if (!isLoaded) {
-      return <Slide title="drinks" message="Loading..." />;
+      return <Slide title="drinks" message="Loading..." { ...themes } />;
     } else {
       const coffeeToday = numeral(stats.coffeeToday).format('0,0');
       const coffeeAllTime = numeral(stats.coffeeAllTime).format('0,0');
       const lacroix = numeral(stats.snackCounter.laCroixCansDrunk).format('0,0');
       const soda = numeral(1240).format('0,0');
       return (
-        <Slide title="drinks">
-          <div className="row slide__content">
+        <Slide title="drinks" { ...themes }>
+          <div className="row h-100">
             <div className="col-5 d-flex justify-content-center align-items-center">
               <div className="row">
-                <div className="CupsToday">
-                  <div className="CupsToday__value">{coffeeToday}</div>
-                  <div className="CupsToday__label">Cups of Coffee Today</div>
+                <div>
+                  <div className={styles.cupsToday}>{coffeeToday}</div>
+                  <div className={styles.cupsTodayLabel}>Cups of Coffee Today</div>
                 </div>
               </div>
             </div>
             <div className="col-7">
-              <div className="DrinkStat row">
-                <div className="col-3 d-flex justify-content-center align-items-center">
-                  <img src="img/icons/food/coffee-3.png" alt="icon" />
-                </div>
-                <div className="col-9">
-                  <div className="row">
-                    <div className="DrinkStat__value">{coffeeAllTime}</div>
-                  </div>
-                  <div className="row">
-                    <div className="DrinkStat__label">Cups of Coffee All Time</div>
-                  </div>
-                </div>
-              </div>
-              <div className="DrinkStat row">
-                <div className="col-3 d-flex justify-content-center align-items-center">
-                  <img src="img/icons/food/can-1.png" alt="icon" />
-                </div>
-                <div className="col-9">
-                  <div className="row">
-                    <div className="DrinkStat__value">{lacroix}</div>
-                  </div>
-                  <div className="row">
-                    <div className="DrinkStat__label DrinkStat__label--lacroix">CANS OF LaCROIX</div>
-                  </div>
-                </div>
-              </div>
-              <div className="DrinkStat row">
-                <div className="col-3 d-flex justify-content-center align-items-center">
-                  <img src="img/icons/food/can.png" alt="icon" />
-                </div>
-                <div className="col-9">
-                  <div className="row">
-                    <div className="DrinkStat__value">{soda}</div>
-                  </div>
-                  <div className="row">
-                    <div className="DrinkStat__label">Cans of Soda</div>
-                  </div>
-                </div>
-              </div>
+              <DrinkStat 
+                icon="food/coffee-3.png" 
+                label="Cups of Coffee All Time" 
+                value={coffeeAllTime} 
+              />
+              <DrinkStat 
+                icon="food/can-1.png" 
+                label="CANS OF LaCROIX" 
+                value={lacroix} 
+              />
+              <DrinkStat 
+                icon="food/can.png" 
+                label="Cans of Soda" 
+                value={soda} 
+              />
             </div>
           </div>
         </Slide>

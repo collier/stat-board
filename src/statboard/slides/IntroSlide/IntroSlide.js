@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import cn from 'classnames';
 
-import './IntroSlide.css';
+import styles from './IntroSlide.module.css';
 
 class IntroSlide extends Component {
 
@@ -32,19 +33,17 @@ class IntroSlide extends Component {
   render() {
     const datetime = this.state.time.format('MMMM Do, YYYY – h:mm:ss A');
     return (
-      <div className="slide slide--introduction">
-        <div className="slide__content row justify-content-center align-items-center">
-          <div className="Title">
+      <div className={styles.slideBody}>
+        <div className="row justify-content-center align-items-center h-100">
+          <div>
             <img src="img/CPT_Horizontal_White.png" alt="c20g-logo" />
-            <div className="AppName">
-              STAT BOARD
-            </div>
-            <div className="DateTime">{datetime}</div>
+            <div className={styles.appName}>STAT BOARD</div>
+            <div className={styles.dateTime}>{datetime}</div>
           </div>
-          <div className="PoweredBy d-flex align-items-end">
-            <span className="PoweredBy__Text">powered by</span>
-            <img className="PoweredBy__Logo" src="img/go.png" alt="go-gopher" />
-            <img className="PoweredBy__Logo" src="img/react.png" alt="react-logo" />
+          <div className={cn('d-flex align-items-end', styles.footer)}>
+            <span className={styles.footerText}>powered by</span>
+            <img className={styles.footerLogo} src="img/go.png" alt="go-gopher" />
+            <img className={styles.footerLogo} src="img/react.png" alt="react-logo" />
           </div>
         </div>
       </div>

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import axios from 'axios';
+import cn from 'classnames';
 import groupBy from 'lodash/groupBy';
 import map from 'lodash/map';
 import reverse from 'lodash/reverse';
 
 import Slide from '../../components/Slide/Slide';
 
-import './StaffSlide.css';
+import LongestTenure from './LongestTenure';
+import styles from './StaffSlide.module.css';
 
 class StaffSlide extends Component {
 
@@ -53,10 +55,10 @@ class StaffSlide extends Component {
     const birthdays = this.state.stats.staffBirthdays;
     if(birthdays.length) {
       return birthdays.map((bday, index) => 
-        <div className="Birthdays__value" key={index}>{bday.name}</div>
+        <div className={styles.birthdayName} key={index}>{bday.name}</div>
       );
     } else {
-      return <div className="Birthdays__value Birthdays__value--empty">N/A</div>;
+      return <div className={styles.emptyList}>N/A</div>;
     }
   }
 
@@ -76,79 +78,63 @@ class StaffSlide extends Component {
         const phrase = year === '1' ? 'year' : 'years';
         const anniversaries = yearGroup.map((anniversary, index) => {
           return (
-            <div className="Anniversary" key={index}>{anniversary.name}</div>
+            <div className={styles.anniversaryName} key={index}>{anniversary.name}</div>
           );
         });
         return (
-          <div className="AnniversaryGroup" key={year}>
-            <div className="AnniversaryYear">{year} {phrase}</div>
+          <div className={styles.anniversaryGroup} key={year}>
+            <div className={styles.anniversaryYear}>{year} {phrase}</div>
             {anniversaries}
           </div>
         );
       }));
       return results;
     } else {
-      return <div className="Anniversary Anniversary--empty">N/A</div>;
+      return <div className={styles.emptyList}>N/A</div>;
     }
   }
 
   render() {
+    const { titleTheme, bodyTheme } = styles;
+    const themes = { titleTheme, bodyTheme };
     const { error, isLoaded, stats } = this.state;
     if (error) {
-      return <Slide title="staff" message="Whoops, something broke." />;
+      return <Slide title="staff" message="Whoops, something broke." { ...themes } />;
     } else if (!isLoaded) {
-      return <Slide title="staff" message="Loading..." />;
+      return <Slide title="staff" message="Loading..." { ...themes } />;
     } else {
       const { numberOfStaff, longestTenure } = stats;
-      const today = moment();
-      const start = moment(longestTenure.startDate, moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
-      const years = today.diff(start, 'year');
-      start.add(years, 'years');
-      const months = today.diff(start, 'months');
-      start.add(months, 'months');
-      const days = today.diff(start, 'days');
       return (
-        <Slide title="staff">
-          <div className="row slide__content">
+        <Slide title="staff" { ...themes }>
+          <div className="row h-100">
             <div className="col">
               <div className="d-flex justify-content-center align-items-center h-50">
-                <div className="NumberOfStaff">
-                  <div className="NumberOfStaff__value">{numberOfStaff}</div>
-                  <div className="NumberOfStaff__label">number of staff</div>
+                <div>
+                  <div className={styles.numberOfStaff}>{numberOfStaff}</div>
+                  <div className={styles.numberOfStaffLabel}>number of staff</div>
                 </div>
               </div>
               <div className="d-flex justify-content-center align-items-center h-50">
-                <div className="LongestTenure">
-                  <div className="LongestTenure__label">longest tenure</div>
-                  <div className="LongestTenure__name">{longestTenure.name}</div>
-                  <div className="LongestTenure__length">
-                    <span className="LongestTenure__Number">{years}</span>
-                    <span className="LongestTenure__NumberLabel">years</span>
-                    <span className="LongestTenure__Number">{months}</span>
-                    <span className="LongestTenure__NumberLabel">months</span>
-                    <span className="LongestTenure__Number">{days}</span>
-                    <span className="LongestTenure__NumberLabel">days</span>
-                  </div>
-                </div>
+                <LongestTenure {...longestTenure} />
               </div>
             </div>
             <div className="col">
               <div className="d-flex justify-content-center align-items-center h-50">
-                <div className="Birthdays">
-                  <div className="Birthdays__label d-flex justify-content-center">
-                    <img className="Birthdays__icon" src="img/icons/celebrations/017-balloons.png" alt="balloons" /> 
-                    <span className="Birthdays__label__text">today's birthdays</span>
-                    <img className="Birthdays__icon" src="img/icons/celebrations/017-balloons.png" alt="balloons" /> 
+                <div>
+                  <div className={cn(styles.dailyHighlightLabel, 'd-flex justify-content-center')}>
+                    <img className={styles.icon} src="img/icons/celebrations/017-balloons.png" alt="balloons" /> 
+                    <span className={styles.dailyHighlightLabelText}>today's birthdays</span>
+                    <img className={styles.icon} src="img/icons/celebrations/017-balloons.png" alt="balloons" /> 
                   </div>
                   {this.renderBirthdays()}
                 </div>
               </div>
               <div className="d-flex justify-content-center align-items-center h-50">
-                <div className="Anniversaries">
-                  <div className="Anniversaries__label d-flex justify-content-center">
-                    <img className="Anniversaries__icon" src="img/icons/celebrations/050-confetti.png" alt="balloons" /> 
-                    <span className="Anniversaries__label__text">today's anniversaries</span>
-                    <img className="Anniversaries__icon" src="img/icons/celebrations/050-confetti.png" alt="balloons" /> 
+                <div>
+                  <div className={cn(styles.dailyHighlightLabel, 'd-flex justify-content-center')}>
+                    <img className={styles.icon} src="img/icons/celebrations/050-confetti.png" alt="confetti" /> 
+                    <span className={styles.dailyHighlightLabelText}>today's anniversaries</span>
+                    <img className={styles.icon} src="img/icons/celebrations/050-confetti.png" alt="confetti" /> 
                   </div>
                   {this.renderAnniversaries()}
                 </div>

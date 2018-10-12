@@ -1,4 +1,7 @@
 import React from 'react';
+import cn from 'classnames';
+
+import styles from './TrainTimeBadge.module.css';
 
 const TrainTimeBadge = ({ platformWaitTimeTrendStatus, trainFrequencyStatus, averageTrainFrequency }) => {
   let icon = '';
@@ -15,21 +18,21 @@ const TrainTimeBadge = ({ platformWaitTimeTrendStatus, trainFrequencyStatus, ave
   let colorClass = '';
   switch (trainFrequencyStatus) {
     case 'OK':
-      colorClass = 'Metro__TrainTime__Badge--green';
+      colorClass = styles.green;
       break;
     case 'SLOW':
-      colorClass = 'Metro__TrainTime__Badge--orange';
+      colorClass = styles.orange;
       break;
     case 'DELAYED':
-      colorClass = 'Metro__TrainTime__Badge--red';
+      colorClass = styles.red;
       break;
     default:
   }
   const trainFreq = Math.floor(averageTrainFrequency);
   return (
-    <div className={`Metro__TrainTime__Badge ${colorClass} d-flex`}>
-      <i className="Metro__TrainTime__Badge__Icon material-icons">{icon}</i>
-      <div className="Metro__TrainTime__Badge__Value">{trainFreq} min</div>
+    <div className={cn(styles.badge, colorClass, 'd-flex')}>
+      <i className={cn(styles.icon, 'material-icons')}>{icon}</i>
+      <div className={styles.minutes}>{trainFreq} min</div>
     </div>
   )
 }

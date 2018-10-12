@@ -1,4 +1,7 @@
 import React from 'react';
+import cn from 'classnames';
+
+import styles from './UpcomingTrains.module.css';
 
 const UpcomingTrains = ({ trains, displayCount }) => {
   let displayedTrains = trains;
@@ -9,9 +12,9 @@ const UpcomingTrains = ({ trains, displayCount }) => {
     const line = train.Line;
     const minutesAway = Math.floor(train.minutesAway);
     return (
-      <div className="Metro__Station__Train d-flex justify-content-center" key={index}>
-        <img className="Metro__Station__Train__Icon" src={`img/icons/metro/${line}.png`} alt="metro-line" />
-        <span className="Metro__Station__Train__Text">{minutesAway} min</span>
+      <div className={cn(styles.upcomingTrain, 'd-flex justify-content-center')} key={index}>
+        <img className={styles.icon} src={`img/icons/metro/${line}.png`} alt="metro-line" />
+        <span className={styles.text}>{minutesAway} min</span>
       </div>
     );
   });

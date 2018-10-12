@@ -1,0 +1,21 @@
+.titleTheme {
+  color: #fff;
+  background-color: #051a6d;
+}
+
+.bodyTheme {
+  color: #fff;
+  background-color: #e07160;
+}
+
+.cupsToday {
+  font-size: 25em;
+  text-align: center;
+  line-height: 0.85em;
+}
+
+.cupsTodayLabel {
+  font-size: 4em;
+  text-transform: uppercase;
+  text-align: center;
+}

@@ -1,0 +1,24 @@
+.competition {
+  max-width: 560px;
+}
+
+.winnerName {
+  font-size: 3em;
+  line-height: 0.8em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.competitionName {
+  font-size: 1.5em;
+  line-height: 1.1em;
+  text-align: center;
+}
+
+.iconContainer {
+  margin-bottom: 20px;
+}
+
+.icon {
+  max-width: 130px;
+}

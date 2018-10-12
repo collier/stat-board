@@ -1,0 +1,17 @@
+.drinkStat {
+  height: 33%;
+}
+
+.icon {
+  max-height: 250px;
+}
+
+.value {
+  font-size: 11em;
+  line-height: 1.2em;
+}
+
+.label {
+  font-size: 2.5em;
+  text-transform: uppercase;
+}

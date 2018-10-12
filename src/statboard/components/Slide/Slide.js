@@ -1,24 +1,26 @@
 import React from 'react';
 import changeCase from 'change-case';
+import cn from 'classnames';
 
-import './Slide.css';
+// import './Slide.css';
+import styles from './Slide.module.css';
 
-const Slide = ({ title, children, message }) => {
+const Slide = ({ title, children, message, titleTheme, bodyTheme }) => {
   let slideContent = children;
   const slideName = changeCase.paramCase(title);
   if(message) {
     slideContent = (
-      <div className="d-flex justify-content-center align-items-center slide__content">
-        <div className="slide__message">{message}</div>
+      <div className={cn('d-flex justify-content-center align-items-center', styles.messageContainer)}>
+        <div className={styles.message}>{message}</div>
       </div>
     );
   }
   return (
-    <div className={`slide slide--${slideName}`}>
-      <div className="row justify-content-center slide__title-container">
-        <h1 className="slide__title">{title}</h1>
+    <div className={cn('slide', bodyTheme)}>
+      <div className={cn('row justify-content-center', styles.titleContainer, titleTheme)}>
+        <h1 className={styles.title}>{title}</h1>
       </div>
-      <div className="slide__content-container">{slideContent}</div>
+      <div className={cn(styles.bodyContainer)}>{slideContent}</div>
     </div>
   );
 }

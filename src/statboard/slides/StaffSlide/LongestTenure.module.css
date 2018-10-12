@@ -1,0 +1,29 @@
+.longestTenure {
+  max-width: 475px;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 2.5em;
+}
+
+.name {
+  font-size: 7em;
+  line-height: 0.8em;
+  margin-bottom: 40px;
+}
+
+.duration {
+  line-height: 0em;
+}
+
+.timeNumber {
+  font-size: 3em;
+  margin-right: 0.1em;
+}
+
+.timeLabel {
+  margin-right: 1em;
+  font-size: 2em;
+  text-transform: uppercase;
+}

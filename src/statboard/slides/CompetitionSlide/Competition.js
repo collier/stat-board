@@ -1,14 +1,17 @@
 import React from 'react';
+import cn from 'classnames';
+
+import styles from './Competition.module.css';
 
 const Competition = ({ icon, winner, name }) => {
   const winnerHtml = {__html: winner};
   return (
-    <div className="Competition">
-      <div className="Competition__icon d-flex justify-content-center align-items-center">
-        <img src={`img/icons/${icon}`} alt="icon" />
+    <div className={styles.competition}>
+      <div className={cn(styles.iconContainer, 'd-flex justify-content-center align-items-center')}>
+        <img className={styles.icon} src={`img/icons/${icon}`} alt="icon" />
       </div>
-      <div className="Competition__winner" dangerouslySetInnerHTML={winnerHtml} />
-      <div className="Competition__name">{name}</div>
+      <div className={styles.winnerName} dangerouslySetInnerHTML={winnerHtml} />
+      <div className={styles.competitionName}>{name}</div>
     </div>
   )
 }

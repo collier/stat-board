@@ -1,0 +1,46 @@
+.titleTheme {
+  color: #fff;
+  background-color: #593F62;
+}
+
+.bodyTheme {
+  color: #fff;
+  background-color: #7B6D8D;
+}
+
+.sectionTitle {
+  font-size: 2.5em;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0;
+}
+
+.upcomingEventTitle {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.upNext {
+  padding: 50px 50px 50px 100px;
+}
+
+.upNextIcon {
+  max-height: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.upNextName {
+  font-size: 4em;
+  text-align: center;
+}
+
+.upNextTime {
+  font-size: 2.5em;
+  font-style: italic;
+  text-align: center;
+}
+
+.upcomingEventList {
+  max-height: 90%;
+}

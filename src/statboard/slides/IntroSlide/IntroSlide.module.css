@@ -1,0 +1,28 @@
+.slideBody {
+  composes: slideBody from '../../components/Slide/Slide.module.css';
+  color: #fff;
+  background-color: #21aa82;
+  font-family: 'Oswald', sans-serif;
+}
+
+.appName {
+  font-size: 4em;
+  margin-top: -1em;
+}
+
+.dateTime {
+  font-size: 5em;
+}
+
+.footer {
+  position: absolute;
+  top: 93%;
+}
+
+.footerText {
+  font-size: 1.7em;
+}
+
+.footerLogo {
+  max-width: 55px;
+}

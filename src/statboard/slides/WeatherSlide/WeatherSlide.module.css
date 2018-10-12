@@ -1,0 +1,57 @@
+.titleTheme {
+  color: #000;
+  background-color: #EDDEA4;
+}
+
+.bodyTheme {
+  color: #fff;
+  background-color: #F7A072;
+}
+
+.currentTemp {
+  font-size: 13em;
+  line-height: 0.9em;
+  letter-spacing: -12px;
+}
+
+.currentTempText {
+  font-size: 2em;
+}
+
+.currentConditionsLabel {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  margin-top: 0.5em;
+}
+
+.currentConditionsValue {
+  font-size: 3em;
+  line-height: 1em;
+}
+
+.futureSectionTitle {
+  font-size: 3em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.futureDailyContainer {
+  border-left: 5px solid #FFF;
+}
+
+.futureTempLabel {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.futureTemp {
+  font-size: 4em;
+  text-align: center;
+}
+
+.futureLowTemp {
+  font-size: 2em;
+  text-align: center;
+}

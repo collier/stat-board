@@ -1,0 +1,27 @@
+.badge {
+  border-radius: 35px;
+  font-size: 40px;
+  padding: 30px;
+}
+
+.green {
+  background-color: green;
+}
+
+.orange {
+  background-color: #ff7737;
+}
+
+.red {
+  background-color: red;
+}
+
+.icon {
+  margin-right: 25px;
+  font-size: 4em;
+  margin-top: 20px;
+}
+
+.minutes {
+  font-size: 4em;
+}

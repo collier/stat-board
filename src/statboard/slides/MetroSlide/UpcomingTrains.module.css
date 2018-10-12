@@ -1,0 +1,16 @@
+.upcomingTrain {
+  font-size: 4em;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.icon {
+  max-width: 66px;
+  max-height: 66px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.text {
+  width: 245px;
+}

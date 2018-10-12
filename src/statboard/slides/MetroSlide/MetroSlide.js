@@ -6,7 +6,7 @@ import TrainTimeBadge from './TrainTimeBadge';
 import MetroAlerts from './MetroAlerts';
 import UpcomingTrains from './UpcomingTrains';
 
-import './MetroSlide.css';
+import styles from './MetroSlide.module.css';
 
 class MetroSlide extends Component {
 
@@ -47,21 +47,23 @@ class MetroSlide extends Component {
   }
 
   render() {
+    const { titleTheme, bodyTheme } = styles;
+    const themes = { titleTheme, bodyTheme };
     const { error, isLoaded, stats } = this.state;
     if (error) {
-      return <Slide title="metro" message="Whoops, something broke." />;
+      return <Slide title="metro" message="Whoops, something broke." { ...themes } />;
     } else if (!isLoaded) {
-      return <Slide title="metro" message="Loading..." />;
+      return <Slide title="metro" message="Loading..." { ...themes } />;
     } else {
       const { greensboro, tysons, silverLineMetrics } = stats;
       const minutesAway = Math.floor(greensboro.expectedRideTime);
       return (
-        <Slide title="metro">
-          <div className="slide__content">
+        <Slide title="metro" { ...themes }>
+          <div className="h-100">
             <div className="row h-50">
               <div className="col">
                 <div className="Metro__Station">
-                  <div className="Metro__Station__Title">Greensboro Station</div>
+                  <div className={styles.sectionTitle}>Greensboro Station</div>
                   <div className="Metro__Station__Upcoming">
                     <UpcomingTrains trains={greensboro.fromStationTrainStatuses} displayCount={3} />
                   </div>
@@ -69,7 +71,7 @@ class MetroSlide extends Component {
               </div>
               <div className="col">
                 <div className="Metro__Station">
-                  <div className="Metro__Station__Title">Tysons Corner Station</div>
+                  <div className={styles.sectionTitle}>Tysons Corner Station</div>
                   <div className="Metro__Station__Upcoming">
                     <UpcomingTrains trains={tysons.fromStationTrainStatuses} displayCount={3} />
                   </div>
@@ -77,10 +79,10 @@ class MetroSlide extends Component {
               </div>
               <div className="col">
                 <div className="MinutesToDest">
-                  <div className="MinutesToDest__Label">Ride Time to Metro Center</div>
-                  <div className="MinutesToDest__Value">
+                  <div className={styles.sectionTitle}>Ride Time to Metro Center</div>
+                  <div className={styles.rideTime}>
                     <span>{minutesAway}</span>
-                    <span className="MinutesToDest__Units">min</span>
+                    <span className={styles.rideTimeUnits}>min</span>
                   </div>
                 </div>
               </div>
@@ -88,7 +90,7 @@ class MetroSlide extends Component {
             <div className="row h-50">
               <div className="col">
                 <div className="Metro__TrainTime h-100">
-                  <div className="Metro__TrainTime__Title">Time Between Trains</div>
+                  <div className={styles.sectionTitle}>Time Between Trains</div>
                   <div className="Metro__TrainTime__Container d-flex justify-content-center align-items-center h-75">
                     <TrainTimeBadge 
                       platformWaitTimeTrendStatus={silverLineMetrics.platformWaitTimeTrendStatus}
@@ -100,7 +102,7 @@ class MetroSlide extends Component {
               </div>
               <div className="col">
                 <div className="Metro__Alert h-100">
-                  <div className="Metro__Alert__Title">Metro Alerts</div>
+                  <div className={styles.sectionTitle}>Metro Alerts</div>
                   <MetroAlerts alerts={greensboro.metroAlerts} displayCount={2} />
                 </div>
               </div>s

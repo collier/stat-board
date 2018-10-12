@@ -4,7 +4,7 @@ import axios from 'axios';
 import Slide from '../../components/Slide/Slide';
 import Competition from './Competition';
 
-import './CompetitionSlide.css';
+import styles from './CompetitionSlide.module.css';
 
 class CompetitionSlide extends Component {
 
@@ -45,16 +45,18 @@ class CompetitionSlide extends Component {
   }
 
   render() {
+    const { titleTheme, bodyTheme } = styles;
+    const themes = { titleTheme, bodyTheme };
     const { error, isLoaded, competitions } = this.state;
     if (error) {
-      return <Slide title="staff" message="Whoops, something broke." />;
+      return <Slide title="staff" message="Whoops, something broke." { ...themes } />;
     } else if (!isLoaded) {
-      return <Slide title="staff" message="Loading..." />;
+      return <Slide title="staff" message="Loading..." { ...themes } />;
     } else {
       return (
-        <Slide title="competition">
-          <div className="slide__content">
-            <div className="row">
+        <Slide title="competition" { ...themes }>
+          <div className="h-100">
+            <div className="row h-33">
               <div className="col-4 d-flex justify-content-center align-items-center">
                 <Competition {...competitions[0]} />
               </div>
@@ -65,7 +67,7 @@ class CompetitionSlide extends Component {
                 <Competition {...competitions[2]} />
               </div>
             </div>
-            <div className="row">
+            <div className="row h-33">
               <div className="col-4 d-flex justify-content-center align-items-center">
                 <Competition {...competitions[3]} />
               </div>
@@ -76,7 +78,7 @@ class CompetitionSlide extends Component {
                 <Competition {...competitions[5]} />
               </div>
             </div>
-            <div className="row">
+            <div className="row h-33">
               <div className="col-4 d-flex justify-content-center align-items-center">
                 <Competition {...competitions[6]} />
               </div>

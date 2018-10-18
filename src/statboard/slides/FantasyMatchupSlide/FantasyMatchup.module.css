@@ -1,0 +1,68 @@
+.matchup {
+  margin-bottom: 25px;
+}
+
+.teamDetailsContainer {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex: 0 0 65%;
+  max-width: 65%;
+  padding-top: 30px;
+}
+
+.logoContainer {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex: 0 0 18%;
+  max-width: 18%;
+}
+
+.scoreContainer {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex: 0 0 15%;
+  max-width: 15%;
+}
+
+.logo {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.teamName {
+  font-size: 2.25em;
+}
+
+.teamDetails {
+  font-size: 1.5em;
+}
+
+.teamDetailsSeperator {
+  padding: 0 12px;
+}
+
+.record {
+  font-style: italic;
+}
+
+.score {
+  font-size: 3em;
+  text-align: center;
+}
+
+.scoreSeperator {
+  font-size: 2em;
+  line-height: 4.25em;
+  margin-left: -15px;
+}

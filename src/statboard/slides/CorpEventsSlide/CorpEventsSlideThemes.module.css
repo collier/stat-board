@@ -1,0 +1,32 @@
+
+/*
+|--------------------------------------------------------------------------
+| Default Style
+|--------------------------------------------------------------------------
+*/
+
+.titleDefault {
+  background-color: #593F62;
+}
+
+.bodyDefault {
+  background-color: #7B6D8D;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Halloween Style
+|--------------------------------------------------------------------------
+*/
+
+.titleHalloween { 
+  composes: titleDefault;
+  font-family: 'Nosifer', cursive;
+  font-size: 37.44px;
+}
+
+.bodyHalloween { 
+  background-color: #db713b; 
+  font-family: 'Creepster', cursive;
+  font-size: 117%;
+}

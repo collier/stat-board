@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import cn from 'classnames';
 
 import Slide from '../../components/Slide/Slide';
+import getSlideThemes from '../../util/getSlideThemes';
 
-import './PetOfTheMonthSlide.css';
+import styles from './PetOfTheMonthSlide.module.css';
+import slideThemes from './PetOfTheMonthSlideThemes.module.css';
 
 class PetOfTheMonthSlide extends Component {
 
@@ -31,6 +34,7 @@ class PetOfTheMonthSlide extends Component {
     axios.get('/api/pet-of-the-month')
       .then((response) => {
         this.setState(() => ({
+          error: null,
           isLoaded: true,
           pet: response.data
         }));
@@ -44,43 +48,44 @@ class PetOfTheMonthSlide extends Component {
   }
 
   render() {
+    const themes = getSlideThemes(slideThemes, this.props.theme);
     const { error, isLoaded, pet } = this.state;
     if (error) {
-      return <Slide title="pet of the month" message="Whoops, something broke." />;
+      return <Slide title="pet of the month" message="Whoops, something broke." { ...themes } />;
     } else if (!isLoaded) {
-      return <Slide title="pet of the month" message="Loading..." />;
+      return <Slide title="pet of the month" message="Loading..." { ...themes } />;
     } else if (!pet) {
-      return <Slide title="pet of the month" message="Coming Soon!" />;
+      return <Slide title="pet of the month" message="Coming Soon!" { ...themes } />;
     } else {
       const petName = {__html: pet.petName};
       return (
-        <Slide title="pet of the month">
-          <div className="row slide__content">
-            <div className="col-5 PetStats">
+        <Slide title="pet of the month" { ...themes }>
+          <div className="row h-100">
+            <div className={cn('col-5', styles.petStatsContainer)}>
               <div className="d-flex align-items-center h-22">
                 <div className="Pet__Name">
-                  <div className="Pet__Name__value" dangerouslySetInnerHTML={petName} />
-                  <div className="Pet__Name__label">name</div>
+                  <div className={styles.petStatValue} dangerouslySetInnerHTML={petName} />
+                  <div className={styles.petStatLabel}>name</div>
                 </div>
               </div>
               <div className="d-flex align-items-center h-22">
-                <div className="Pet__Owner">
-                  <div className="Pet__Owner__value">{pet.ownerName}</div>
-                  <div className="Pet__Owner__label">owner</div>
+                <div className={styles.petStat}>
+                  <div className={styles.petStatValue}>{pet.ownerName}</div>
+                  <div className={styles.petStatLabel}>owner</div>
                 </div>
               </div>
               <div className="d-flex align-items-center h-20">
-                <div className="Pet__Species">
-                  <div className="Pet__Species__value">{pet.petSpecies}</div>
-                  <div className="Pet__Species__label">breed/species</div>
+                <div className={styles.petStat}>
+                  <div className={styles.petStatValue}>{pet.petSpecies}</div>
+                  <div className={styles.petStatLabel}>breed/species</div>
                 </div>
               </div>
               <div className="d-flex align-items-center h-33">
-                <div className="Pet__Description">{pet.description}</div>
+                <div className={styles.petDescription}>{pet.description}</div>
               </div>
             </div>
             <div className="col d-flex justify-content-center align-items-center">
-              <img className="Pet__Picture" src={`img/${pet.picture}`} alt="pet" />
+              <img className={styles.petPicture} src={`img/${pet.picture}`} alt="pet" />
             </div>
           </div>
         </Slide>

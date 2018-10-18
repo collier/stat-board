@@ -7,9 +7,11 @@ import map from 'lodash/map';
 import reverse from 'lodash/reverse';
 
 import Slide from '../../components/Slide/Slide';
+import getSlideThemes from '../../util/getSlideThemes';
 
 import LongestTenure from './LongestTenure';
 import styles from './StaffSlide.module.css';
+import slideThemes from './StaffSlideThemes.module.css';
 
 class StaffSlide extends Component {
 
@@ -39,6 +41,7 @@ class StaffSlide extends Component {
     axios.get('/api/staff-stats')
       .then((response) => {
         this.setState(() => ({
+          error: null,
           isLoaded: true,
           stats: response.data
         }));
@@ -95,8 +98,7 @@ class StaffSlide extends Component {
   }
 
   render() {
-    const { titleTheme, bodyTheme } = styles;
-    const themes = { titleTheme, bodyTheme };
+    const themes = getSlideThemes(slideThemes, this.props.theme);
     const { error, isLoaded, stats } = this.state;
     if (error) {
       return <Slide title="staff" message="Whoops, something broke." { ...themes } />;

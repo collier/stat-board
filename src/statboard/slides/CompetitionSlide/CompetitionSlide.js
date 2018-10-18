@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Slide from '../../components/Slide/Slide';
+import getSlideThemes from '../../util/getSlideThemes';
+
 import Competition from './Competition';
 
-import styles from './CompetitionSlide.module.css';
+import slideThemes from './CompetitionSlideThemes.module.css';
 
 class CompetitionSlide extends Component {
 
@@ -32,6 +34,7 @@ class CompetitionSlide extends Component {
     axios.get('/api/competitions')
       .then((response) => {
         this.setState(() => ({
+          error: null,
           isLoaded: true,
           competitions: response.data
         }));
@@ -45,8 +48,7 @@ class CompetitionSlide extends Component {
   }
 
   render() {
-    const { titleTheme, bodyTheme } = styles;
-    const themes = { titleTheme, bodyTheme };
+    const themes = getSlideThemes(slideThemes, this.props.theme);
     const { error, isLoaded, competitions } = this.state;
     if (error) {
       return <Slide title="staff" message="Whoops, something broke." { ...themes } />;

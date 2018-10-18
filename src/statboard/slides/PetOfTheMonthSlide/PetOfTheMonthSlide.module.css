@@ -1,0 +1,25 @@
+.petStatsContainer {
+  margin-left: 8em;
+}
+
+.petStat {
+  margin-bottom: 30px;
+}
+
+.petStatValue {
+  font-size: 4.4em;
+}
+
+.petStatLabel {
+  text-transform: uppercase;
+  font-size: 2.5em;
+}
+
+.petDescription {
+  font-size: 2em;
+}
+
+.petPicture {
+  max-width: 80%;
+  border-radius: 50%;
+}

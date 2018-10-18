@@ -4,9 +4,11 @@ import moment from 'moment';
 import cn from 'classnames';
 
 import Slide from '../../components/Slide/Slide';
+import getSlideThemes from '../../util/getSlideThemes';
 
 import UpcomingEvent from './UpcomingEvent';
 import styles from './CorpEventsSlide.module.css';
+import slideThemes from './CorpEventsSlideThemes.module.css';
 
 class CorpEventsSlide extends Component {
 
@@ -35,6 +37,7 @@ class CorpEventsSlide extends Component {
     axios.get('/api/events')
       .then((response) => {
         this.setState(() => ({
+          error: null,
           isLoaded: true,
           events: response.data
         }));
@@ -59,8 +62,7 @@ class CorpEventsSlide extends Component {
   }
 
   render() {
-    const { titleTheme, bodyTheme } = styles;
-    const themes = { titleTheme, bodyTheme };
+    const themes = getSlideThemes(slideThemes, this.props.theme);
     const { error, isLoaded, events } = this.state;
     if (error) {
       return <Slide title="corporate events & holidays" message="Whoops, something broke." { ...themes } />;

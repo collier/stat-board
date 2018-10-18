@@ -12,7 +12,6 @@ import 'react-select/dist/react-select.css';
 import 'react-virtualized/styles.css';
 import 'react-virtualized-select/styles.css';
 import './index.css';
-import './themes/halloween.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

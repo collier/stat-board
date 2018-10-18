@@ -1,0 +1,35 @@
+
+/*
+|--------------------------------------------------------------------------
+| Default Style
+|--------------------------------------------------------------------------
+*/
+
+.titleDefault {
+  display: none !important;
+}
+
+.bodyDefault {
+  background-color: #21aa82;
+  font-family: 'Oswald', sans-serif;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Halloween Style
+|--------------------------------------------------------------------------
+*/
+
+.titleHalloween { 
+  composes: titleDefault;
+}
+
+.bodyHalloween { 
+  background-color: #BF4E15; 
+  font-family: 'Creepster', cursive;
+  font-size: 117%;
+}
+
+.appNameHalloween {
+  margin-top: -0.5em;
+}

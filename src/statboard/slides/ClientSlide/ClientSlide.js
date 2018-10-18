@@ -52,6 +52,7 @@ class ClientSlide extends Component {
           return client;
         });
         this.setState(() => ({
+          error: null,
           isLoaded: true,
           clients
         }));

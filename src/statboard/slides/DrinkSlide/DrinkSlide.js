@@ -3,9 +3,11 @@ import numeral from 'numeral';
 import axios from 'axios';
 
 import Slide from '../../components/Slide/Slide';
+import getSlideThemes from '../../util/getSlideThemes';
 
 import DrinkStat from './DrinkStat';
 import styles from './DrinkSlide.module.css';
+import slideThemes from './DrinkSlideThemes.module.css';
 
 class DrinkSlide extends Component {
 
@@ -33,6 +35,7 @@ class DrinkSlide extends Component {
     axios.get('/api/drink-stats')
       .then((response) => {
         this.setState(() => ({
+          error: null,
           isLoaded: true,
           stats: response.data
         }));
@@ -46,8 +49,7 @@ class DrinkSlide extends Component {
   }
 
   render() {
-    const { titleTheme, bodyTheme } = styles;
-    const themes = { titleTheme, bodyTheme };
+    const themes = getSlideThemes(slideThemes, this.props.theme);
     const { error, isLoaded, stats } = this.state;
     if (error) {
       return <Slide title="drinks" message="Whoops, something broke." { ...themes } />;

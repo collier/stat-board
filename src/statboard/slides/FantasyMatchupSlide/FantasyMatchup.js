@@ -1,4 +1,7 @@
 import React from 'react';
+import cn from 'classnames';
+
+import styles from './FantasyMatchup.module.css';
 
 const FantasyMatchup = ({ homeTeam, awayTeam, matchup }) => {
   let homeLogo = homeTeam.logoUrl;
@@ -20,46 +23,50 @@ const FantasyMatchup = ({ homeTeam, awayTeam, matchup }) => {
   const homeOwnerName = `${homeOwner.firstName} ${homeOwner.lastName}`;
   const awayOwnerName = `${awayOwner.firstName} ${awayOwner.lastName}`;
   return (
-    <div className="FantasyMatchup row">
+    <div className={cn('row', styles.matchup)}>
       <div className="col">
-        <div className="HomeTeam row">
-          <div className="NameContainer">
-            <div className="HomeTeam__Name">{homeTeam.teamLocation} {homeTeam.teamNickname}</div>
-            <div className="HomeTeam__Details">
-              <span className="HomeTeam__Owner">{homeOwnerName}</span>
-              <span className="HomeTeam__DetailsSeperator">·</span>
-              <span className="HomeTeam__Record">{homeTeam.record.overallWins}-{homeTeam.record.overallLosses}</span>
+        <div className="d-flex">
+          <div className={styles.teamDetailsContainer}>
+            <div className={cn('text-right', styles.teamName)}>
+              {homeTeam.teamLocation} {homeTeam.teamNickname}
+            </div>
+            <div className={cn('text-right', styles.teamDetails)}>
+              <span>{homeOwnerName}</span>
+              <span className={styles.teamDetailsSeperator}>·</span>
+              <span className={cn('text-right', styles.record)}>
+                {homeTeam.record.overallWins}-{homeTeam.record.overallLosses}
+              </span>
             </div>
           </div>
-          <div className="LogoContainer d-flex justify-content-center">
-            <img className="HomeTeam__Logo" src={homeLogo} alt="home-logo" />
+          <div className={cn('d-flex justify-content-center', styles.logoContainer)}>
+            <img className={styles.logo} src={homeLogo} alt="home-logo" />
           </div>
-          <div className="ScoreContainer d-flex justify-content-center align-items-center">
-            <div className="HomeTeam__Score">{matchup.homeTeamScores[0]}</div>
+          <div className={cn('d-flex justify-content-center align-items-center', styles.scoreContainer)}>
+            <div className={styles.score}>{matchup.homeTeamScores[0]}</div>
           </div>
         </div>
       </div>
-      <div className="ScoreSeperator">-</div>
+      <div className={styles.scoreSeperator}>-</div>
       <div className="col">
-        <div className="AwayTeam row">
-          <div className="ScoreContainer d-flex justify-content-center align-items-center">
-            <div className="AwayTeam__Score">{matchup.awayTeamScores[0]}</div>
+        <div className="d-flex">
+          <div className={cn('d-flex justify-content-center align-items-center', styles.scoreContainer)}>
+            <div className={styles.score}>{matchup.awayTeamScores[0]}</div>
           </div>
-          <div className="LogoContainer d-flex justify-content-center">
-            <img className="AwayTeam__Logo" src={awayLogo} alt="away-logo" />
+          <div className={cn('d-flex justify-content-center', styles.logoContainer)}>
+            <img className={styles.logo} src={awayLogo} alt="away-logo" />
           </div>
-          <div className="NameContainer">
-            <div className="AwayTeam__Name">{awayTeam.teamLocation} {awayTeam.teamNickname}</div>
-            <div className="AwayTeam__Details">
-              <span className="AwayTeam__Record">{awayTeam.record.overallWins}-{awayTeam.record.overallLosses}</span>
-              <span className="AwayTeam__DetailsSeperator">·</span>
-              <span className="AwayTeam__Owner">{awayOwnerName}</span>
+          <div className={styles.teamDetailsContainer}>
+            <div className={styles.teamName}>{awayTeam.teamLocation} {awayTeam.teamNickname}</div>
+            <div className={styles.teamDetails}>
+              <span className={styles.record}>{awayTeam.record.overallWins}-{awayTeam.record.overallLosses}</span>
+              <span className={styles.teamDetailsSeperator}>·</span>
+              <span>{awayOwnerName}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default FantasyMatchup;

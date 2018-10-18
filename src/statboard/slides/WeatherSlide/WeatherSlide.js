@@ -4,8 +4,10 @@ import axios from 'axios';
 import SkyIcon from './SkyIcon';
 
 import Slide from '../../components/Slide/Slide';
+import getSlideThemes from '../../util/getSlideThemes';
 
 import styles from './WeatherSlide.module.css';
+import slideThemes from './WeatherSlideThemes.module.css';
 
 class WeatherSlide extends Component {
 
@@ -35,6 +37,7 @@ class WeatherSlide extends Component {
     axios.get('/api/weather')
       .then((response) => {
         this.setState(() => ({
+          error: null,
           isLoaded: true,
           weather: response.data
         }));
@@ -114,8 +117,7 @@ class WeatherSlide extends Component {
   }
 
   render() {
-    const { titleTheme, bodyTheme } = styles;
-    const themes = { titleTheme, bodyTheme };
+    const themes = getSlideThemes(slideThemes, this.props.theme);
     const { error, isLoaded } = this.state;
     if (error) {
       return <Slide title="weather" message="Whoops, something broke." { ...themes } />;
@@ -131,7 +133,7 @@ class WeatherSlide extends Component {
         <Slide title="weather" { ...themes } >
           <div className="h-100">
             <div className="d-flex justify-content-center align-items-center h-50">
-              <div className="row h-67">
+              <div className="row w-67">
                 <div className="col-4 d-flex justify-content-end align-items-center">
                   <SkyIcon 
                     icon={currently.icon}
@@ -145,22 +147,26 @@ class WeatherSlide extends Component {
                   />
                 </div>
                 <div className="col-md-auto">
-                  <div className={styles.currentTemp}>
-                    {currTemp}°
-                  </div>
-                  <div className={styles.currentTempText}>
-                    {currFeelsLikeTemp}° feels like 
-                  </div>
-                  <div className={styles.currentTempText}>
-                    {currHumidity}% humidity 
-                  </div>
-                  <div className={styles.currentTempText}>
-                    {currWindSpeed}mph winds
+                  <div>
+                    <div className={styles.currentTemp}>
+                      {currTemp}°
+                    </div>
+                    <div className={styles.currentTempText}>
+                      {currFeelsLikeTemp}° feels like 
+                    </div>
+                    <div className={styles.currentTempText}>
+                      {currHumidity}% humidity 
+                    </div>
+                    <div className={styles.currentTempText}>
+                      {currWindSpeed}mph winds
+                    </div>
                   </div>
                 </div>
                 <div className="col-4">
-                  <div className={styles.currentConditionsLabel}>conditions</div>
-                  <div className={styles.currentConditionsValue}>{currently.summary}</div>
+                  <div>
+                    <div className={styles.currentConditionsLabel}>conditions</div>
+                    <div className={styles.currentConditionsValue}>{currently.summary}</div>
+                  </div>
                 </div>
               </div>
             </div>

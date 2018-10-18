@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Slide from '../../components/Slide/Slide';
+import getSlideThemes from '../../util/getSlideThemes';
+
 import TrainTimeBadge from './TrainTimeBadge';
 import MetroAlerts from './MetroAlerts';
 import UpcomingTrains from './UpcomingTrains';
 
 import styles from './MetroSlide.module.css';
+import slideThemes from './MetroSlideThemes.module.css';
 
 class MetroSlide extends Component {
 
@@ -34,6 +37,7 @@ class MetroSlide extends Component {
     axios.get('/api/metro-stats')
       .then((response) => {
         this.setState(() => ({
+          error: null,
           isLoaded: true,
           stats: response.data
         }));
@@ -47,8 +51,7 @@ class MetroSlide extends Component {
   }
 
   render() {
-    const { titleTheme, bodyTheme } = styles;
-    const themes = { titleTheme, bodyTheme };
+    const themes = getSlideThemes(slideThemes, this.props.theme);
     const { error, isLoaded, stats } = this.state;
     if (error) {
       return <Slide title="metro" message="Whoops, something broke." { ...themes } />;

@@ -1,5 +1,5 @@
 .slideBody {
-  composes: slideBody from '../../components/Slide/Slide.module.css';
+  height: 100%;
   color: #fff;
   background-color: #21aa82;
   font-family: 'Oswald', sans-serif;

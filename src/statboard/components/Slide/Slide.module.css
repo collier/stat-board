@@ -1,23 +1,19 @@
-.titleContainer {
-  margin-bottom: 20px;
+.slide {
+  color: #fff;
 }
 
-.title {
-  margin: 5px 0;
+.titleContainer {
+  margin-bottom: 20px;
+  color: #fff;
+  padding: 5px 0;
   text-transform: uppercase;
   font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 2em;
 }
 
 .bodyContainer {
   height: calc(100% - 77px);
-}
-
-.slideBody {
-  height: 100%;
-}
-
-.messageContainer {
-  height: 100%;
 }
 
 .message {

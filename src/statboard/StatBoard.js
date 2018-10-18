@@ -19,9 +19,10 @@ class StatBoard extends Component {
     this.state = {
       initialSlide: 0,
       nextSlide: 1,
-      autoplay: false,
+      autoplay: true,
       slideDuration: 10000,
-      slideTransitionSpeed: 3000
+      slideTransitionSpeed: 3000,
+      theme: 'Default' // Default, Halloween
     };
     this.onSlideChange = this.onSlideChange.bind(this);
   }
@@ -59,15 +60,15 @@ class StatBoard extends Component {
     };
     return (
       <Slider {...settings} ref={sliderRef => (this.sliderRef = sliderRef)}>
-        {/* <IntroSlide slideNumber={0} nextSlide={this.state.nextSlide} /> */}
-        {/* <WeatherSlide slideNumber={1} nextSlide={this.state.nextSlide} /> */}
-        {/* <DrinkSlide slideNumber={2} nextSlide={this.state.nextSlide} /> */}
-        {/* <StaffSlide slideNumber={3} nextSlide={this.state.nextSlide} /> */}
-        {/* <CompetitionSlide slideNumber={4} nextSlide={this.state.nextSlide} /> */}
-        {/* <CorpEventsSlide slideNumber={5} nextSlide={this.state.nextSlide} /> */}
-        {/* <MetroSlide slideNumber={6} nextSlide={this.state.nextSlide} /> */}
-        <PetOfTheMonthSlide slideNumber={7} nextSlide={this.state.nextSlide} />
-        {/* <FantasyMatchupSlide slideNumber={8} nextSlide={this.state.nextSlide} /> */}
+        <IntroSlide slideNumber={0} nextSlide={this.state.nextSlide} theme={this.state.theme} />
+        <WeatherSlide slideNumber={1} nextSlide={this.state.nextSlide} theme={this.state.theme} />
+        <DrinkSlide slideNumber={2} nextSlide={this.state.nextSlide} theme={this.state.theme} />
+        <StaffSlide slideNumber={3} nextSlide={this.state.nextSlide} theme={this.state.theme} />
+        <CompetitionSlide slideNumber={4} nextSlide={this.state.nextSlide} theme={this.state.theme} />
+        <CorpEventsSlide slideNumber={5} nextSlide={this.state.nextSlide} theme={this.state.theme} />
+        <MetroSlide slideNumber={6} nextSlide={this.state.nextSlide} theme={this.state.theme} />
+        <PetOfTheMonthSlide slideNumber={7} nextSlide={this.state.nextSlide} theme={this.state.theme} />
+        <FantasyMatchupSlide slideNumber={8} nextSlide={this.state.nextSlide} theme={this.state.theme} />
       </Slider>
     );
   }

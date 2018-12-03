@@ -9,7 +9,8 @@ import {
   CorpEventsSlide,
   MetroSlide,
   FantasyMatchupSlide,
-  PetOfTheMonthSlide
+  // PetOfTheMonthSlide,
+  AdventOfCodeSlide
 } from './slides';
 
 class StatBoard extends Component {
@@ -67,8 +68,9 @@ class StatBoard extends Component {
         <CompetitionSlide slideNumber={4} nextSlide={this.state.nextSlide} theme={this.state.theme} />
         <CorpEventsSlide slideNumber={5} nextSlide={this.state.nextSlide} theme={this.state.theme} />
         <MetroSlide slideNumber={6} nextSlide={this.state.nextSlide} theme={this.state.theme} />
-        <PetOfTheMonthSlide slideNumber={7} nextSlide={this.state.nextSlide} theme={this.state.theme} />
-        <FantasyMatchupSlide slideNumber={8} nextSlide={this.state.nextSlide} theme={this.state.theme} />
+        {/* <PetOfTheMonthSlide slideNumber={7} nextSlide={this.state.nextSlide} theme={this.state.theme} /> */}
+        <FantasyMatchupSlide slideNumber={7} nextSlide={this.state.nextSlide} theme={this.state.theme} />
+        <AdventOfCodeSlide slideNumber={8} nextSlide={this.state.nextSlide} theme={this.state.theme} />
       </Slider>
     );
   }

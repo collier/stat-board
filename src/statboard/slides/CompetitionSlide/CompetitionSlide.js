@@ -51,9 +51,9 @@ class CompetitionSlide extends Component {
     const themes = getSlideThemes(slideThemes, this.props.theme);
     const { error, isLoaded, competitions } = this.state;
     if (error) {
-      return <Slide title="staff" message="Whoops, something broke." { ...themes } />;
+      return <Slide title="competition" message="Whoops, something broke." { ...themes } />;
     } else if (!isLoaded) {
-      return <Slide title="staff" message="Loading..." { ...themes } />;
+      return <Slide title="competition" message="Loading..." { ...themes } />;
     } else {
       return (
         <Slide title="competition" { ...themes }>

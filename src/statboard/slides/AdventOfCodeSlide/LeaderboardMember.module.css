@@ -1,0 +1,39 @@
+.memberRow {
+  margin: 25px 0;
+}
+
+.scoreContainer {
+  width: 5%;
+  font-size: 2.2em;
+}
+
+.nameContainer {
+  width: 20%;
+  font-size: 2.2em;
+  padding-right: 10px;
+}
+
+.starList {
+  width: 75%;
+}
+
+.score {
+  font-size: 0.7em;
+}
+
+.star {
+  font-size: 3.5em;
+  width: 4%;
+}
+
+.grey {
+  color: #382929;
+}
+
+.silver {
+  color: silver;
+}
+
+.gold {
+  color: gold;
+}

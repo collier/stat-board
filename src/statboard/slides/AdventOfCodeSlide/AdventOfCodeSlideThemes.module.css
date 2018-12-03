@@ -1,0 +1,16 @@
+/*
+|--------------------------------------------------------------------------
+| Default Style
+|--------------------------------------------------------------------------
+*/
+
+.titleDefault {
+  background-color: #90F780;
+  color: #0F0F23;
+}
+
+.bodyDefault {
+  background-color: #0F0F23;
+  /* font-family: 'Consolas'; */
+  font-family: "Source Code Pro", monospace;
+}

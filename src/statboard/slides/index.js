@@ -7,6 +7,7 @@ import CorpEventsSlide from './CorpEventsSlide/CorpEventsSlide';
 import MetroSlide from './MetroSlide/MetroSlide';
 import FantasyMatchupSlide from './FantasyMatchupSlide/FantasyMatchupSlide';
 import PetOfTheMonthSlide from './PetOfTheMonthSlide/PetOfTheMonthSlide';
+import AdventOfCodeSlide from './AdventOfCodeSlide/AdventOfCodeSlide';
 
 export {
   IntroSlide,
@@ -17,5 +18,6 @@ export {
   CorpEventsSlide,
   MetroSlide,
   FantasyMatchupSlide,
-  PetOfTheMonthSlide
+  PetOfTheMonthSlide,
+  AdventOfCodeSlide
 }

@@ -1,0 +1,20 @@
+.scoreLabel {
+  width: 5%;
+}
+
+.nameGap {
+  width: 20%;
+}
+
+.daysList {
+  width: 75%;
+}
+
+.day {
+  width: 4%;
+}
+
+.label {
+  font-size: 1.5em;
+  line-height: 0.7em;
+}

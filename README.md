@@ -35,7 +35,7 @@ Full Demo, size of GIF is too larege for GitHub to embed:
 
 ## Backend
 
-This repository holds only the slideshow code, written as a React project. The backend RESTful API is in a seperate repository. 
+This repository holds only the slideshow code, written as a React application. There is also a backend RESTful API which serves all of the data seen in the slides. The API is written in Goland, and is housed in a seperate repository.
 
 ## Installation and Development
 

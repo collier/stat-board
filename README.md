@@ -17,7 +17,9 @@ This repository holds only the SlideShow code, written as a React project. The b
 
 ## Demo
 
-![Demo](https://i.imgur.com/OzdPFrf.gif)
+![Short Demo](https://i.imgur.com/orrxNRR.gif)
+
+[Longer Demo](https://i.imgur.com/OzdPFrf.gif)
 
 ## Installation and Development
 

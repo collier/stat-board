@@ -17,7 +17,15 @@ This repository holds only the SlideShow code, written as a React project. The b
 
 ## Demo
 
-![Short Demo](https://i.imgur.com/orrxNRR.gif)
+Some of the slides shown all the time:
+
+![Daily Demo](https://i.imgur.com/N0rzG0b.gif)
+
+Some of the slides shown seasonally:
+
+![Seasonal Demo](https://i.imgur.com/n02IwZG.gif)
+
+Full Demo, size of GIF is too larege for GitHub to embed:
 
 [Longer Demo](https://i.imgur.com/OzdPFrf.gif)
 

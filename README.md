@@ -13,7 +13,7 @@ A slideshow which displays statistics about an office or company. The StatBoard 
 - Staff Anniversaries and Birthdays
 - Office Weather
 
-This repository holds only the SlideShow code, written as a React project. The backend RESTful API is in a seperate repository.
+Along with the slideshow, the same application also houses an Admin Panel interface that allows users to modify some of the information which is displayed in the slides.
 
 ## Demo
 
@@ -25,9 +25,17 @@ Some of the slides shown seasonally:
 
 ![Seasonal Demo](https://i.imgur.com/n02IwZG.gif)
 
+Screenshot of the Admin Panel interface to update data on some of the slides:
+
+![Admin Panel](https://i.imgur.com/4mGVvit.png)
+
 Full Demo, size of GIF is too larege for GitHub to embed:
 
 [Longer Demo](https://i.imgur.com/OzdPFrf.gif)
+
+## Backend
+
+This repository holds only the slideshow code, written as a React project. The backend RESTful API is in a seperate repository. 
 
 ## Installation and Development
 

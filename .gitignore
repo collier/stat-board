@@ -10,6 +10,7 @@
 
 # production
 /build
+DEPLOY_GUIDE.md
 
 # misc
 .DS_Store

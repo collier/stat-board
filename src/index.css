@@ -67,12 +67,24 @@ body,
   width: auto !important;
 }
 
+.h-17 {
+  height: 17% !important;
+}
+
 .h-22 {
   height: 22% !important;
 }
 
 .h-25 {
   height: 25% !important;
+}
+
+.h-27 {
+  height: 27% !important;
+}
+
+.h-30 {
+  height: 30% !important;
 }
 
 .h-33 {

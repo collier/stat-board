@@ -7,6 +7,7 @@ import {
   StaffSlide,
   CompetitionSlide,
   CorpEventsSlide,
+  CountdownSlide,
   MetroSlide
 } from './slides';
 
@@ -65,6 +66,14 @@ class StatBoard extends Component {
         <CompetitionSlide slideNumber={4} nextSlide={this.state.nextSlide} theme={this.state.theme} />
         <CorpEventsSlide slideNumber={5} nextSlide={this.state.nextSlide} theme={this.state.theme} />
         <MetroSlide slideNumber={6} nextSlide={this.state.nextSlide} theme={this.state.theme} />
+        <CountdownSlide 
+          slideNumber={7} 
+          nextSlide={this.state.nextSlide} 
+          theme={this.state.theme} 
+          eventName="Game of Thrones Final Season" 
+          eventTime="2019-04-14T21:00:00"
+          eventImg="img/game-of-thrones-season-8.jpg"
+        />
       </Slider>
     );
   }

@@ -12,6 +12,7 @@ A slideshow which displays statistics about an office or company. The StatBoard 
 - Pet of the Month
 - Staff Anniversaries and Birthdays
 - Office Weather
+- Countdown to a Big Event
 
 Along with the slideshow, the same application also houses an Admin Panel interface that allows users to modify some of the information which is displayed in the slides.
 

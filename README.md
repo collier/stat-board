@@ -8,6 +8,7 @@ A slideshow which displays statistics about an office or company. The StatBoard 
 - Upcoming Corporate Events
 - Coffee Machine Counter
 - Fantasy Football Matchups
+- March Madness Bracket Challenge
 - Metro Commuting Information
 - Pet of the Month
 - Staff Anniversaries and Birthdays

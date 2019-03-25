@@ -51,6 +51,10 @@ body,
   width: 75% !important;
 }
 
+.w-80 {
+  width: 75% !important;
+}
+
 .w-95 {
   width: 95% !important;
 }

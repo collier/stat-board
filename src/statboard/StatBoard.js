@@ -8,7 +8,8 @@ import {
   CompetitionSlide,
   CorpEventsSlide,
   CountdownSlide,
-  MetroSlide
+  MetroSlide,
+  MarchMadnessSlide
 } from './slides';
 
 class StatBoard extends Component {
@@ -74,6 +75,7 @@ class StatBoard extends Component {
           eventTime="2019-04-14T21:00:00"
           eventImg="img/game-of-thrones-season-8.jpg"
         />
+        <MarchMadnessSlide slideNumber={8} nextSlide={this.state.nextSlide} theme={this.state.theme} />
       </Slider>
     );
   }

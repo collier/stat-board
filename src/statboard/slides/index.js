@@ -10,6 +10,7 @@ import FantasyMatchupSlide from './FantasyMatchupSlide/FantasyMatchupSlide';
 import PetOfTheMonthSlide from './PetOfTheMonthSlide/PetOfTheMonthSlide';
 import AdventOfCodeSlide from './AdventOfCodeSlide/AdventOfCodeSlide';
 import MarchMadnessSlide from './MarchMadnessSlide/MarchMadnessSlide';
+import SimpleSlide from './SimpleSlide/SimpleSlide';
 
 export {
   IntroSlide,
@@ -23,5 +24,6 @@ export {
   FantasyMatchupSlide,
   PetOfTheMonthSlide,
   AdventOfCodeSlide,
-  MarchMadnessSlide
+  MarchMadnessSlide,
+  SimpleSlide
 }

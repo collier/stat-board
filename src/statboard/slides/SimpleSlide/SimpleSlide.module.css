@@ -1,0 +1,12 @@
+.slide {
+  color: #fff;
+}
+
+.value {
+  font-size: 9em;
+}
+
+.label {
+  font-size: 3em;
+  text-transform: uppercase;
+}
